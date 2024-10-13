@@ -1,0 +1,29 @@
+.pagination {
+  padding-top: 2rem;
+  gap: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+}
+
+.indicationContainer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.paginationIndicators {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: #ececec;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #9fd131;
+}

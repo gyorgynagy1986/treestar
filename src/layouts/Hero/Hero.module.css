@@ -1,0 +1,99 @@
+.section {
+  padding: 0 5vw;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: var(--maxWidth);
+  margin-inline: auto;
+  opacity: 1;
+
+  transition: opacity 0.5s ease-in-out; /* Áttűnés hatás */
+}
+
+.container.fade-out {
+  opacity: 0;
+}
+
+.imageContainer {
+  width: 100%;
+  position: relative; /* Important for absolute positioning of inner elements */
+  background-color: aqua;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  width: 100%;
+  position: relative; /* Szükséges az abszolút pozicionáláshoz */
+}
+
+.image {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Illeszkedik a cellákhoz */
+}
+
+.test {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+}
+
+.topLeft {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.bottomRight {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: center;
+  justify-self: center;
+}
+
+.textContainer {
+  max-width: 380px;
+  padding-left: 12%;
+  padding-bottom: 6%;
+  z-index: 3;
+}
+
+.textContainerRight {
+  max-width: 500px;
+  padding-left: 6%;
+  padding-top: 10%;
+  z-index: 3;
+}
+
+.h1 {
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 35.64px;
+  text-align: left;
+  color: #3f4d55;
+}
+
+.p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 29.16px;
+  text-align: left;
+  color: #3f4d55;
+}
+
+.imgTree {
+  margin-top: 2rem;
+}

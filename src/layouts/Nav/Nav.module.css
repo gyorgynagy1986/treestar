@@ -1,0 +1,27 @@
+.nav {
+  padding: 0 5vw;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  padding: 4rem 0rem;
+}
+
+.navContainer {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.ul {
+  display: flex;
+  gap: 3rem;
+  font-size: 1.6rem;
+}
+
+.ul li {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
