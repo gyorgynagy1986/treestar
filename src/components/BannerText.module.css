@@ -3,6 +3,12 @@
   overflow: hidden; /* Hide overflow to prevent scrollbars */
 }
 
+@media screen and (max-width: 768px) {
+  .section {
+    padding: 5rem 0;
+  }
+}
+
 .container {
   height: 8rem;
   display: flex;

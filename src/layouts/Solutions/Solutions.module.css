@@ -9,12 +9,26 @@
   gap: 6rem;
 }
 
+@media screen and (max-width:768px) {
+  .container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
 .fotoContainer {
   width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (max-width:768px) {
+  .fotoContainer {
+    width: 100%;
+  }
+}
+
 
 .fotoContainer img {
   width: 100%;
@@ -33,6 +47,14 @@
   gap: 4rem;
 }
 
+@media screen and (max-width:768px) {
+  .textContainer {
+    width: 100%;
+    max-height: 100%;
+  }
+}
+
+
 .textContainer_container {
   display: flex;
   flex-direction: column;
@@ -45,6 +67,14 @@
   line-height: 25.92px;
   text-align: left;
 }
+
+@media screen and (max-width:768px) {
+  .textContainer p {
+    font-size: 15px;
+
+  }
+}
+
 
 .h3 {
   font-size: 18px;

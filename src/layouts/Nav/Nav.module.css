@@ -24,6 +24,12 @@
   padding: 4rem 0rem;
 }
 
+@media screen and (max-width: 768px) {
+  .container {
+    display: none;
+  }
+}
+
 .logoContainerTree {
   position: relative;
   transition: opacity 0.3s ease;
@@ -187,4 +193,31 @@
 
 .hide {
   display: none; /* or you can use 'opacity: 0' if you prefer a fade effect */
+}
+
+
+
+.mobileNav {
+  display: none;
+
+}
+
+@media screen and (max-width:768px) {
+  .mobileNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+  }
+  
+}
+
+
+.mobileLogo {
+  max-width: 154px;
+}
+
+.mobilehambi {
+  max-width: 32px;
+  cursor: pointer;
 }

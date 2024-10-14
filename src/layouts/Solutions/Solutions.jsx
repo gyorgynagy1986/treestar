@@ -38,7 +38,6 @@ const Solutions = () => {
   return (
     <section className={styles.section}>
       <ContentComponent content={currentContent} />
-
       <PaginationControls
         currentPage={currentPage}
         totalPages={totalPages}
