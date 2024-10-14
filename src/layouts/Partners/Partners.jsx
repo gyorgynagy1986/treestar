@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./Partners.module.css";
 import Image from "next/image";
-import {partners} from '@/data/Partners'
+import { partners } from "@/data/Partners";
 
 const Partners = () => {
   return (
-    <section className={styles.section}>
+    <section id="partnereink" className={styles.section}>
       <div className={styles.partnersContainer}>
         <div className={styles.titleContainer1}>
           <h2 className={styles.title}>Partnereink</h2>

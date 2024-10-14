@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./Solutions.module.css";
 import PaginationControls from "@/utils/PaginationControls";
 import ContentComponent from "./ContentComponent";
-import content from "@/data/solutionData";  // text data
+import content from "@/data/solutionData"; // text data
 import getOptimizedImageUrl from "@/utils/getOptimizedImageUrl"; // Optimalizált kép URL generálás
 
 const Solutions = () => {

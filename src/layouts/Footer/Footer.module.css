@@ -1,0 +1,92 @@
+.footer {
+  max-width: 100%;
+  background-color: #f4f4f4;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  border-radius: 5rem 5rem 0 0;
+  -webkit-border-radius: 5rem 5rem 0 0;
+  -moz-border-radius: 5rem 5rem 0 0;
+  -ms-border-radius: 5rem 5rem 0 0;
+  -o-border-radius: 5rem 5rem 0 0;
+}
+
+.container {
+  max-width: var(--maxWidth);
+  display: flex;
+  margin-inline: auto;
+  padding: 5.6rem 0;
+  
+  justify-content: center;
+}
+
+.contentContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 10.7rem;
+}
+
+.p {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  text-align: center;
+  color: #3f4d55;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.contactContainer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.contactContainer a {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: center;
+  color: #3f4d55;
+  margin-bottom: 1rem;
+}
+
+.contentContainerItems {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: end;
+}
+
+.logoContainer {
+  width: 100%;
+  display: flex;
+}
+
+.logoContainer img {
+  width: 100%;
+  max-width: 26.8rem;
+  height: auto;
+}
+
+.legalContainer {
+    display: flex;
+    gap: 1rem;
+}
+
+.year {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: center;
+    color: #3F4D55;
+}
+
+.company {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: center;
+    color: #9AA1A5;
+}

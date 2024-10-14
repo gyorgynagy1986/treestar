@@ -1,31 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
 import Image from "next/image";
-import HeroImage from "../../../public/assets/hero.png";
-import HeroImage2 from "../../../public/assets/hero2.png";
+import HeroImage from "../../../public/assets/layouts/hero.webp";
+import HeroImage2 from "../../../public/assets/layouts/hero2.webp";
 import Tree from "../../../public/assets/tree.svg";
 import heroData from "@/data/Hero";
 
 const HeroContent = ({ currentPage }) => {
-  const data = currentPage === 0 ? heroData.section1 : heroData.section2;
+  const [fade, setFade] = useState(false);
+  const [activePage, setActivePage] = useState(currentPage); 
+  const data = activePage === 0 ? heroData.section1 : heroData.section2;
+
+  useEffect(() => {
+    setFade(false); // Eltűnés effekt
+    const timer = setTimeout(() => {
+      setActivePage(currentPage);
+      setFade(true); 
+    }, 5);
+
+    return () => clearTimeout(timer);
+  }, [currentPage]);
 
   return (
     <div className={styles.gridContainer}>
-      <>
-        <ContentBlock title={data[0].title} text={data[0].text} imgSrc={Tree} />
-        <ContentBlock
-          title={data[1].title}
-          text={data[1].text}
-          imgSrc={Tree}
-          right
-        />
-        <Image
-          priority
-          className={styles.image}
-          src={currentPage === 0 ? HeroImage : HeroImage2}
-          alt="Hero image"
-        />
-      </>
+      <ContentBlock title={data[0].title} text={data[0].text} imgSrc={Tree} />
+      <ContentBlock
+        title={data[1].title}
+        text={data[1].text}
+        imgSrc={Tree}
+        right
+      />
+      <Image
+        priority
+        className={`${styles.image} ${fade ? styles.fadeIn : styles.fadeOut}`} 
+        src={activePage === 0 ? HeroImage : HeroImage2}
+        alt="Hero image"
+      />
     </div>
   );
 };

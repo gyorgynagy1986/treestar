@@ -1,23 +1,40 @@
-import React from "react";
-import Image from "next/image";
-import Logo from "../../../public/assets/logo.svg";
-import styles from "./Nav.module.css";
-import Tree from "../../../public/assets/tree.svg";
-const Nav = () => {
+"use client"
+
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import styles from './Nav.module.css';
+import Logo from '../../../public/assets/logo.svg';
+import Tree from '../../../public/assets/tree.svg';
+
+const Nav = ({ sticky }) => {
+  const [isHovering, setIsHovering] = useState(false);
+
   return (
-    <nav className={styles.nav}>
+    <nav className={`${styles.nav} ${sticky && styles.navSticky}`}>
       <div className={styles.container}>
-        <div>
+        <div className={styles.logoContainer}>
           <Image src={Logo} alt="trestar logo" />
         </div>
         <div className={styles.navContainer}>
           <ul className={styles.ul}>
-            <li>Partnereink</li>
-            <li>Megoldásaink</li>
-            <li>Rólunk</li>
-            <li>Lépjünk kapcsolatba!</li>
+            <li><Link href='#partnereink'>Partnereink</Link></li>
+            <li><Link href='#megoldások'>Megoldásaink</Link></li>
+            <li><Link href='#rólunk'>Rólunk</Link></li>
+            <li>
+              <Link
+                className={styles.hoverBtn}
+                href='#kapcsolat'
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+              >
+                Lépj velünk kapcsolatba
+              </Link>
+            </li>
           </ul>
-          <Image src={Tree} alt="trestar" />
+          <div className={`${styles.logoContainerTree} ${isHovering ? styles.hide : ''}`}>
+            <Image src={Tree} alt="trestar" />
+          </div>
         </div>
       </div>
     </nav>

@@ -2,8 +2,7 @@
 import React, { useState } from "react";
 import styles from "./WhoWeAre.module.css";
 import Image from "next/image";
-import contents from '@/data/WhoWeAre' // text data
-
+import contents from "@/data/WhoWeAre"; // text data
 
 const WhoWeAre = () => {
   const [path, setPath] = useState(1);
@@ -14,7 +13,9 @@ const WhoWeAre = () => {
         {text.map((paragraph, index) => (
           <p key={index}>
             <b>{index === 0 ? paragraph.split(".")[0] + "." : ""}</b>
-            {index === 0 ? paragraph.slice(paragraph.indexOf(".") + 1) : paragraph}
+            {index === 0
+              ? paragraph.slice(paragraph.indexOf(".") + 1)
+              : paragraph}
           </p>
         ))}
       </div>
@@ -27,7 +28,7 @@ const WhoWeAre = () => {
   );
 
   return (
-    <section className={styles.section}>
+    <section id="rólunk" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.nav}>
           {contents.map((item) => (
@@ -61,7 +62,10 @@ const CircularText = ({ text }) => (
       d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250"
     ></path>
     <text dy="-15">
-      <textPath xlinkHref="#textcircle" dangerouslySetInnerHTML={{ __html: text }} />
+      <textPath
+        xlinkHref="#textcircle"
+        dangerouslySetInnerHTML={{ __html: text }}
+      />
     </text>
   </svg>
 );

@@ -7,7 +7,12 @@ import Image from "next/image";
 import Left from "../../public/assets/left.svg";
 import Right from "../../public/assets/right.svg";
 
-const PaginationControls = ({ currentPage, totalPages, onChange, interval = 3000 }) => {
+const PaginationControls = ({
+  currentPage,
+  totalPages,
+  onChange,
+  interval = 3000,
+}) => {
   // useEffect az automatikus lapozásért
   useEffect(() => {
     const autoSlide = setInterval(() => {
@@ -26,7 +31,9 @@ const PaginationControls = ({ currentPage, totalPages, onChange, interval = 3000
         width={70}
         height={70}
         style={{ cursor: "pointer", padding: "1rem" }}
-        onClick={() => onChange(currentPage > 0 ? currentPage - 1 : totalPages - 1)}
+        onClick={() =>
+          onChange(currentPage > 0 ? currentPage - 1 : totalPages - 1)
+        }
         src={Left}
         alt="Previous"
       />

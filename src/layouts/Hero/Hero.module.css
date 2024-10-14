@@ -30,13 +30,52 @@
   position: relative; /* Szükséges az abszolút pozicionáláshoz */
 }
 
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.02); /* Kicsi méretváltozás, hogy dinamikusabb legyen */
+  }
+}
+
 .image {
   grid-column: 1 / 3;
   grid-row: 1 / 3;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Illeszkedik a cellákhoz */
+  object-fit: cover;
+  opacity: 0; /* Kezdeti opacitás */
 }
+
+.fadeIn {
+  animation: fadeInAnimation 1s ease forwards; /* Fade-in animáció */
+}
+
+.fadeOut {
+  animation: fadeOutAnimation 1s ease forwards; /* Fade-out animáció */
+}
+
+.image {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0; /* Kezdeti állapotban nem látható */
+}
+
+.fadeIn {
+  animation: fadeInAnimation 1s ease forwards; /* Az előre irányuló fade-in animáció */
+}
+
+.fadeOut {
+  animation: fadeOutAnimation 1s ease forwards; /* Az előre irányuló fade-out animáció */
+}
+
+
 
 .test {
   color: black;

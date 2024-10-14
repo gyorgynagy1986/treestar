@@ -7,6 +7,7 @@ import WhoWeAre from "@/layouts/WhoWeAre/WhoWeAre";
 export default function Home() {
   return (
     <>
+      
       <Hero />
       <Banner />
       <main>

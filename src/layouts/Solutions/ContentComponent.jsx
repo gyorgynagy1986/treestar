@@ -4,6 +4,7 @@ import Image from "next/image";
 
 const ContentComponent = ({ content }) => {
   return (
+    <section id="megoldások">
     <div className={styles.container}>
       <div className={styles.fotoContainer}>
         <Image priority src={content.image} alt={content.title} />
@@ -17,6 +18,7 @@ const ContentComponent = ({ content }) => {
         </div>
       </div>
     </div>
+    </section>
   );
 };
 

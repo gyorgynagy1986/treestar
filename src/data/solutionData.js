@@ -1,7 +1,7 @@
-import photo1 from "../../public/assets/solutions/1.png";
-import photo2 from "../../public/assets/solutions/2.png";
-import photo3 from "../../public/assets/solutions/3.png";
-import photo4 from "../../public/assets/solutions/4.png";
+import photo2 from "../../public/assets/solutions/2.webp";
+import photo1 from "../../public/assets/solutions/1.webp";
+import photo3 from "../../public/assets/solutions/3.webp";
+import photo4 from "../../public/assets/solutions/4.webp";
 
 const content = [
   {
