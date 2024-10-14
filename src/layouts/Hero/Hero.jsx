@@ -18,7 +18,7 @@ const Hero = () => {
   // Figyeljük a képernyőméretet, és ha nagyobb mint 768px, beállítjuk a desktop nézetet
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 768);
+      setIsDesktop(window.innerWidth >= 769);
     };
 
     // Azonnali ellenőrzés a komponens betöltésekor

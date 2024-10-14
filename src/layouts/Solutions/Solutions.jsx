@@ -9,6 +9,8 @@ import getOptimizedImageUrl from "@/utils/getOptimizedImageUrl"; // Optimalizál
 
 const Solutions = () => {
   const [currentPage, setCurrentPage] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchEndX, setTouchEndX] = useState(0);
 
   const totalPages = content.length;
 
@@ -27,6 +29,27 @@ const Solutions = () => {
     }
   };
 
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.changedTouches[0].screenX);
+  };
+
+  const handleTouchEnd = (e) => {
+    setTouchEndX(e.changedTouches[0].screenX);
+    handleSwipe();
+  };
+
+  const handleSwipe = () => {
+    if (touchStartX - touchEndX > 50) {
+      // Balra húzás - következő oldal
+      handlePaginationChange(currentPage < totalPages - 1 ? currentPage + 1 : 0);
+    }
+
+    if (touchEndX - touchStartX > 50) {
+      // Jobbra húzás - előző oldal
+      handlePaginationChange(currentPage > 0 ? currentPage - 1 : totalPages - 1);
+    }
+  };
+
   useEffect(() => {
     // Előtöltjük a következő képet, amikor az oldal változik
     const nextPage = currentPage + 1 < totalPages ? currentPage + 1 : 0;
@@ -36,7 +59,11 @@ const Solutions = () => {
   const currentContent = content[currentPage];
 
   return (
-    <section className={styles.section}>
+    <section
+      className={styles.section}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <ContentComponent content={currentContent} />
       <PaginationControls
         currentPage={currentPage}

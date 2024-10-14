@@ -109,6 +109,15 @@
   z-index: 3;
 }
 
+@media screen and (max-width: 1088px) {
+
+  .textContainer {
+    max-width: 268px;
+    padding-left: 5%;
+
+  }  
+}
+
 .textContainerRight {
   max-width: 500px;
   padding-left: 6%;
@@ -125,12 +134,28 @@
   color: #3f4d55;
 }
 
+@media screen and (max-width: 1088px) {
+
+  .h1 {
+    font-size: 17px;
+
+  }  
+}
+
 .p {
   font-size: 18px;
   font-weight: 300;
   line-height: 29.16px;
   text-align: left;
   color: #3f4d55;
+}
+
+@media screen and (max-width: 1088px) {
+
+  .p {
+    font-size: 16px;
+    line-height: 26.16px;
+  }  
 }
 
 .imgTree {

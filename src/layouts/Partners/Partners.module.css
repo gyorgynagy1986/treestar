@@ -3,6 +3,14 @@
   width: 100%;
 }
 
+@media screen and (max-width: 768px) {
+
+  .section {
+padding-bottom: 0rem;
+    width: 100%;
+  }
+}
+
 .partnersContainer {
   width: 100%;
   display: flex;
@@ -109,12 +117,7 @@
   padding-left: 5vw;
 }
 
-
 }
-
-
-
-
 
 
 .title {
