@@ -1,3 +1,9 @@
+@media screen and (min-width:769px) {
+    .section {
+        display: none;
+    }
+}
+
 .container {
     padding: 0 2vw;
     padding-top: 5rem;
@@ -18,11 +24,12 @@
 }
 
 .h1 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     line-height: 22.68px;
     text-align: left;
     color: #3F4D55;
+    text-transform: uppercase;
 }
 
 .p {

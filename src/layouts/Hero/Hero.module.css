@@ -11,6 +11,13 @@
   transition: opacity 0.5s ease-in-out; /* Áttűnés hatás */
 }
 
+@media screen and (max-width: 1000px) {
+
+  .DesktopContainer {
+   padding-top: 5rem;
+  }  
+}
+
 @media screen and (max-width: 768px) {
 
   .DesktopContainer {

@@ -24,7 +24,13 @@
   padding: 4rem 0rem;
 }
 
-@media screen and (max-width: 768px) {
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1000px) {
   .container {
     display: none;
   }
@@ -62,6 +68,15 @@
   justify-content: center;
   align-items: center;
 }
+
+
+@media screen and (max-width: 1099px) {
+  .ul {
+    gap: 0rem;
+  }
+}
+
+
 
 .ul li {
   font-size: 1.6rem;
@@ -202,7 +217,7 @@
 
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:1000px) {
   .mobileNav {
     display: flex;
     justify-content: space-between;

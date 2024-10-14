@@ -6,7 +6,7 @@ import Hero from '../../../public/assets/layouts/heroMobile.png'
 
 const HeroMobile = () => {
   return (
-    <section>
+    <section className={styles.section}>
         <div className={styles.container}>
             <div className={styles.itemsContainer}>
                 <h1 className={styles.h1}>AI automatizációval</h1>
