@@ -12,7 +12,7 @@ const HeroMobile = () => {
                 <h1 className={styles.h1}>AI automatizációval</h1>
                 <p  className={styles.p}> hatékonyabbá tesszük a munkafolyamataid</p>
             </div>
-            <Image className={styles.HeroMobile} src={Hero} alt='treestar' />
+            <Image priority className={styles.HeroMobile} src={Hero} alt='treestar' />
             <div className={styles.itemsContainer}>
                 <h1 className={styles.h1}>Digitális transzformációval</h1>
                 <p  className={styles.p}> a fenntartható jövőbe vezetjük át a termelési folyamatokat</p>
