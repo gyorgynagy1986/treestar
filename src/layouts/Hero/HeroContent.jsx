@@ -1,16 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styles from "./Hero.module.css";
 import Image from "next/image";
 import HeroImage from "../../../public/assets/layouts/hero.webp";
 import HeroImage2 from "../../../public/assets/layouts/hero2.webp";
 import Tree from "../../../public/assets/tree.svg";
 import heroData from "@/data/Hero";
+import getOptimizedImageUrl from "@/utils/getOptimizedImageUrl";
 
 const HeroContent = ({ currentPage }) => {
   const [fade, setFade] = useState(false);
   const [activePage, setActivePage] = useState(currentPage);
   const data = activePage === 0 ? heroData.section1 : heroData.section2;
 
+  // Preload images for optimization
+  useEffect(() => {
+    const imagesToPreload = [
+      getOptimizedImageUrl(HeroImage.src),
+      getOptimizedImageUrl(HeroImage2.src),
+    ];
+    imagesToPreload.forEach((src) => {
+      const img = new window.Image();
+      img.src = src; // Betöltéshez elegendő beállítani a kép optimalizált src-jét
+    });
+  }, []);
+
+  // Frissíti az aktív oldalt és a fade effektust
   useEffect(() => {
     setFade(false); // Eltűnés effekt
     const timer = setTimeout(() => {
@@ -31,7 +45,7 @@ const HeroContent = ({ currentPage }) => {
         right
       />
       <Image
-        priority
+        priority={true}
         className={`${styles.image} ${fade ? styles.fadeIn : styles.fadeOut}`}
         src={activePage === 0 ? HeroImage : HeroImage2}
         alt="Hero image"

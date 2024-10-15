@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styles from "./PaginationControls.module.css";
 import Image from "next/image";
 import Left from "../../public/assets/left.svg";
@@ -14,15 +14,16 @@ const PaginationControls = ({
 }) => {
   const [touchStartX, setTouchStartX] = useState(0);
   const [touchEndX, setTouchEndX] = useState(0);
+  const autoSlide = useRef(null); // Az automatikus lapozást kezelő változó referencia
 
   // useEffect az automatikus lapozásért
   useEffect(() => {
-    const autoSlide = setInterval(() => {
-      onChange((currentPage + 1) % totalPages); // Ugrik a következő oldalra, a kör végén vissza az elejére
+    autoSlide.current = setInterval(() => {
+      onChange((currentPage + 1) % totalPages);
     }, interval);
 
     return () => {
-      clearInterval(autoSlide); // Tisztítás, amikor a komponens eltávolításra kerül
+      clearInterval(autoSlide.current); // Tisztítás, amikor a komponens eltávolításra kerül
     };
   }, [currentPage, totalPages, onChange, interval]);
 
@@ -38,14 +39,16 @@ const PaginationControls = ({
 
   const handleSwipe = () => {
     if (touchStartX - touchEndX > 50) {
-      // Balra húzás - következő oldal
       onChange(currentPage < totalPages - 1 ? currentPage + 1 : 0);
-    }
-
-    if (touchEndX - touchStartX > 50) {
-      // Jobbra húzás - előző oldal
+    } else if (touchEndX - touchStartX > 50) {
       onChange(currentPage > 0 ? currentPage - 1 : totalPages - 1);
     }
+
+    // Újraindítja az automatikus lapozást
+    clearInterval(autoSlide.current);
+    autoSlide.current = setInterval(() => {
+      onChange((currentPage + 1) % totalPages);
+    }, interval);
   };
 
   return (
