@@ -33,9 +33,9 @@ const WhoWeAre = () => {
   return (
     <section id="rólunk" className={styles.section}>
       <div className={styles.container}>
-        <Image width={3840} height={2117} alt="treestar" style={{ opacity: path === 1 ? '1' : '0' }} priority src={as} className={styles.imgpng} />  
-        <Image width={1200} height={566} alt="treestar" style={{ opacity: path === 2 ? '1' : '0' }} priority src={as1} className={styles.imgpng} />
-        <Image width={1200} height={566} alt="treestar" style={{ opacity: path === 3 ? '1' : '0' }} priority src={as2} className={styles.imgpng} /> 
+        <Image layout="responsive"  width={3840} height={2117} alt="treestar" style={{ opacity: path === 1 ? '1' : '0' }} priority src={as} className={styles.imgpng} />  
+        <Image layout="responsive"  width={3840} height={2117} alt="treestar" style={{ opacity: path === 2 ? '1' : '0' }} priority src={as1} className={styles.imgpng} />
+        <Image layout="responsive"  width={3840} height={2117} alt="treestar" style={{ opacity: path === 3 ? '1' : '0' }} priority src={as2} className={styles.imgpng} /> 
 
         <div className={styles.nav}>
 
