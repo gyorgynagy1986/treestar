@@ -33,9 +33,9 @@ const WhoWeAre = () => {
   return (
     <section id="rólunk" className={styles.section}>
       <div className={styles.container}>
-      { path === 1 && <Image src={as} className={styles.imgpng} />  }  
-      { path === 2 &&  <Image src={as1} className={styles.imgpng} /> } 
-      { path === 3 &&  <Image src={as2} className={styles.imgpng} /> } 
+        <Image style={{ opacity: path === 1 ? '1' : '0' }} priority src={as} className={styles.imgpng} />  
+        <Image style={{ opacity: path === 2 ? '1' : '0' }} priority src={as1} className={styles.imgpng} />
+        <Image style={{ opacity: path === 3 ? '1' : '0' }} priority src={as2} className={styles.imgpng} /> 
 
         <div className={styles.nav}>
 
