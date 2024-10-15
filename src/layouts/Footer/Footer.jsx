@@ -14,7 +14,10 @@ const Footer = () => {
           <div className={styles.logoContainer}>
             <Image src={logo} alt={footerData.logoAlt} />{" "}
           </div>
-          
+          <div className={styles.legalContainer}>
+            <p className={styles.year}>{footerData.year} © TreeStar</p>
+            <p className={styles.company}>{footerData.company}</p>
+        </div>
         </div>
         <div className={styles.contentContainer}>
           <div className={styles.contentContainerItems}>

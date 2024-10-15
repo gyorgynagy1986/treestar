@@ -139,17 +139,8 @@
 }
 
 
-@media screen and (max-width: 800px) {
-  
-  .company {
-    display: none;
-  }
-  .year {
-    display: none;
- }
-}
-
   .legalContainermobile {
+    display: none;
   }
 
   .yearMobile {
@@ -168,4 +159,18 @@
     text-align: center;
     color: #9aa1a5;
     white-space: nowrap;
+  }
+
+  @media screen and (max-width: 800px) {
+  
+    .legalContainermobile {
+      display: block;
+    }
+
+    .company {
+      display: none;
+    }
+    .year {
+      display: none;
+   }
   }
