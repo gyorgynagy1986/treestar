@@ -4,6 +4,8 @@ import styles from "./WhoWeAre.module.css";
 import Image from "next/image";
 import contents from "@/data/WhoWeAre"; // text data
 import as from '../../../public/assets/222.png'
+import as1 from '../../../public/assets/333.png'
+import as2 from '../../../public/assets/444.png'
 
 const WhoWeAre = () => {
   const [path, setPath] = useState(1);
@@ -31,6 +33,10 @@ const WhoWeAre = () => {
   return (
     <section id="rólunk" className={styles.section}>
       <div className={styles.container}>
+      { path === 1 && <Image src={as} className={styles.imgpng} />  }  
+      { path === 2 &&  <Image src={as1} className={styles.imgpng} /> } 
+      { path === 3 &&  <Image src={as2} className={styles.imgpng} /> } 
+
         <div className={styles.nav}>
 
           {contents.map((item) => (

@@ -1,5 +1,5 @@
 :root {
-  --maxWidth: 128rem;
+  --maxWidth: 120.8rem;
 }
 
 @media (prefers-color-scheme: dark) {
