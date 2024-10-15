@@ -41,12 +41,16 @@ const Solutions = () => {
   const handleSwipe = () => {
     if (touchStartX - touchEndX > 50) {
       // Balra húzás - következő oldal
-      handlePaginationChange(currentPage < totalPages - 1 ? currentPage + 1 : 0);
+      handlePaginationChange(
+        currentPage < totalPages - 1 ? currentPage + 1 : 0,
+      );
     }
 
     if (touchEndX - touchStartX > 50) {
       // Jobbra húzás - előző oldal
-      handlePaginationChange(currentPage > 0 ? currentPage - 1 : totalPages - 1);
+      handlePaginationChange(
+        currentPage > 0 ? currentPage - 1 : totalPages - 1,
+      );
     }
   };
 

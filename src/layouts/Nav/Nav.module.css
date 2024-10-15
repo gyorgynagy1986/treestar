@@ -39,7 +39,8 @@
 .logoContainerTree {
   position: relative;
   transition: opacity 0.3s ease;
-  /*Smoothfadeeffect*/animation: none;
+  /*Smoothfadeeffect*/
+  animation: none;
   -webkit-transition: opacity 0.3s ease;
   -moz-transition: opacity 0.3s ease;
   -ms-transition: opacity 0.3s ease;
@@ -69,14 +70,11 @@
   align-items: center;
 }
 
-
 @media screen and (max-width: 1099px) {
   .ul {
     gap: 0rem;
   }
 }
-
-
 
 .ul li {
   font-size: 1.6rem;
@@ -104,14 +102,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: .15rem solid transparent;
+  border: 0.15rem solid transparent;
   border-radius: 3rem;
   position: relative;
   transition: border-color 0.3s ease; /* Finom átmenet a border-re */
 }
 
 .hoverBtn:hover {
-  border-color: #9FD131;
+  border-color: #9fd131;
 }
 
 .hoverBtn::after {
@@ -120,7 +118,7 @@
   width: 22px;
   height: 16px;
   margin-left: 0.5rem;
-  background-image: url('data:image/svg+xml,%3Csvg width=%2222%22 height=%2216%22 viewBox=%220%200%2022%2016%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M21 8.1665H1%22 stroke=%22%239FD131%22 stroke-width=%221.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3Cpath d=%22M14.3335 1.5L21.0002 8.16667L14.3335 14.8333%22 stroke=%22%239FD131%22 stroke-width=%221.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E');
+  background-image: url("data:image/svg+xml,%3Csvg width=%2222%22 height=%2216%22 viewBox=%220%200%2022%2016%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M21 8.1665H1%22 stroke=%22%239FD131%22 stroke-width=%221.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3Cpath d=%22M14.3335 1.5L21.0002 8.16667L14.3335 14.8333%22 stroke=%22%239FD131%22 stroke-width=%221.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0;
@@ -135,7 +133,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: .15rem solid transparent;
+  border: 0.15rem solid transparent;
   border-radius: 3rem;
   position: relative;
   transition: border-color 0.3s ease; /* Smooth transition for the border */
@@ -179,8 +177,12 @@
     -moz-transform: translateX(0px);
     -ms-transform: translateX(0px);
     -o-transform: translateX(0px);
-}
-  25%, 55%, 75%, 87%, 98% {
+  }
+  25%,
+  55%,
+  75%,
+  87%,
+  98% {
     transform: translateX(0px);
     animation-timing-function: ease-out;
   }
@@ -193,7 +195,8 @@
 
 /* New bounce-back animation */
 @keyframes bounce-back {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0px);
     animation-timing-function: ease-out; /* Smoother transition */
     opacity: 1;
@@ -205,28 +208,22 @@
   }
 }
 
-
 .hide {
   display: none; /* or you can use 'opacity: 0' if you prefer a fade effect */
 }
 
-
-
 .mobileNav {
   display: none;
-
 }
 
-@media screen and (max-width:1000px) {
+@media screen and (max-width: 1000px) {
   .mobileNav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2rem 0;
   }
-  
 }
-
 
 .mobileLogo {
   max-width: 154px;

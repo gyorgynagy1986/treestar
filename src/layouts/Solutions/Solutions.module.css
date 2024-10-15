@@ -9,7 +9,7 @@
   gap: 6rem;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
   .container {
     flex-direction: column;
     gap: 3rem;
@@ -23,12 +23,11 @@
   align-items: center;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
   .fotoContainer {
     width: 100%;
   }
 }
-
 
 .fotoContainer img {
   width: 100%;
@@ -47,14 +46,12 @@
   gap: 4rem;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
   .textContainer {
     width: 100%;
     gap: 2rem;
-
   }
 }
-
 
 .textContainer_container {
   display: flex;
@@ -69,20 +66,18 @@
   text-align: left;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
   .textContainer p {
     font-size: 16px;
-
   }
 }
-
 
 .h3 {
   font-size: 18px;
   font-weight: 700;
   line-height: 21.94px;
   text-align: left;
-  color: #3F4D55;
+  color: #3f4d55;
 }
 
 .button {

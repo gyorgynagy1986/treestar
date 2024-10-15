@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import styles from "./WhoWeAre.module.css";
 import Image from "next/image";
 import contents from "@/data/WhoWeAre"; // text data
-import as from '../../../public/assets/222.png'
-import as1 from '../../../public/assets/333.png'
-import as2 from '../../../public/assets/444.png'
+import as from "../../../public/assets/222.png";
+import as1 from "../../../public/assets/333.png";
+import as2 from "../../../public/assets/444.png";
 
 const WhoWeAre = () => {
   const [path, setPath] = useState(1);
-  
+
   const renderContent = ({ text, image, svgText }) => (
     <div className={styles.contentContainer}>
       <div className={styles.textContainer}>
@@ -33,12 +33,29 @@ const WhoWeAre = () => {
   return (
     <section id="rólunk" className={styles.section}>
       <div className={styles.container}>
-        <Image  alt="treestar" style={{ opacity: path === 1 ? '1' : '0' }} priority src={as} className={styles.imgpng} />  
-        <Image  alt="treestar" style={{ opacity: path === 2 ? '1' : '0' }} priority src={as1} className={styles.imgpng} />
-        <Image  alt="treestar" style={{ opacity: path === 3 ? '1' : '0' }} priority src={as2} className={styles.imgpng} /> 
+        <Image
+          alt="treestar"
+          style={{ opacity: path === 1 ? "1" : "0" }}
+          priority
+          src={as}
+          className={styles.imgpng}
+        />
+        <Image
+          alt="treestar"
+          style={{ opacity: path === 2 ? "1" : "0" }}
+          priority
+          src={as1}
+          className={styles.imgpng}
+        />
+        <Image
+          alt="treestar"
+          style={{ opacity: path === 3 ? "1" : "0" }}
+          priority
+          src={as2}
+          className={styles.imgpng}
+        />
 
         <div className={styles.nav}>
-
           {contents.map((item) => (
             <div className={styles.navEl} key={item.id}>
               <h3
@@ -51,7 +68,6 @@ const WhoWeAre = () => {
           ))}
         </div>
         {renderContent(contents.find((content) => content.id === path))}
-        
       </div>
     </section>
   );

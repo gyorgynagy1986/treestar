@@ -4,7 +4,7 @@ import Image from "next/image";
 import logo from "../../../public/assets/logo.svg";
 import tel from "../../../public/assets/icons/tel.svg";
 import email from "../../../public/assets/icons/email.svg";
-import { footerData } from "@/data/Footer"; 
+import { footerData } from "@/data/Footer";
 
 const Footer = () => {
   return (

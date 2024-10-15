@@ -8,14 +8,14 @@ import heroData from "@/data/Hero";
 
 const HeroContent = ({ currentPage }) => {
   const [fade, setFade] = useState(false);
-  const [activePage, setActivePage] = useState(currentPage); 
+  const [activePage, setActivePage] = useState(currentPage);
   const data = activePage === 0 ? heroData.section1 : heroData.section2;
 
   useEffect(() => {
     setFade(false); // Eltűnés effekt
     const timer = setTimeout(() => {
       setActivePage(currentPage);
-      setFade(true); 
+      setFade(true);
     }, 5);
 
     return () => clearTimeout(timer);
@@ -32,8 +32,8 @@ const HeroContent = ({ currentPage }) => {
       />
       <Image
         priority
-        layout="responsive" 
-        className={`${styles.image} ${fade ? styles.fadeIn : styles.fadeOut}`} 
+        layout="responsive"
+        className={`${styles.image} ${fade ? styles.fadeIn : styles.fadeOut}`}
         src={activePage === 0 ? HeroImage : HeroImage2}
         alt="Hero image"
       />

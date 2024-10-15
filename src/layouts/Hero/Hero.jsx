@@ -16,12 +16,12 @@ const Hero = () => {
     setCurrentPage(newPage);
   };
 
-  
   return (
     <section className={styles.section}>
       {/* Csak akkor rendereljük a HeroContent-et, ha desktop nézetben vagyunk */}
       <div className={styles.DesktopContainer}>
-      <HeroContent currentPage={currentPage} /> </div>
+        <HeroContent currentPage={currentPage} />{" "}
+      </div>
 
       <HeroMobile />
 
