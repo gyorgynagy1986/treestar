@@ -9,7 +9,6 @@ import HeroMobile from "./HeroMobile";
 
 const Hero = () => {
   const [currentPage, setCurrentPage] = useState(0); // Aktuális oldal állapota
-  const [isDesktop, setIsDesktop] = useState(false); // Állapot a kijelző méretének figyelésére
   const totalPages = 2; // Összes oldal (pl. 2 van)
 
   const handlePaginationChange = (newPage) => {

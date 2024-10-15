@@ -1,7 +1,7 @@
 // import localFont from "next/font/local";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
-import Nav from "@/layouts/Nav/Nax";
+import Nav from "@/layouts/Nav/Nav";
 import Footer from "@/layouts/Footer/Footer";
 
 const monst = Montserrat({
