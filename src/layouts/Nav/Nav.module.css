@@ -8,12 +8,12 @@
   left: 0;
   padding-top: -2rem;
   padding-bottom: -2rem;
-  z-index: 100;
+  z-index: 99999999;
   width: 100%;
   padding-left: 5vw;
   padding-right: 5vw;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  box-shadow: rgba(0, 0, 0, 0.114) 0px 25px 50px -12px;
 }
 
 .container {
