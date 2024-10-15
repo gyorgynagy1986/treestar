@@ -194,6 +194,7 @@
   column-gap: 10rem;
   justify-items: center;
   align-items: center;
+  z-index: 99999;
 }
 
 @media screen and (max-width: 1082px) {
@@ -255,6 +256,15 @@
   opacity: 0.5;
 }
 
+@media screen and (max-width: 1024px) {
+
+  .imagesContainer img {
+    opacity: 15;
+
+  }  
+}
+
+
 @media screen and (max-width: 960px) {
 
   .imagesContainer img {
@@ -275,8 +285,6 @@
 .imagesContainer img:hover {
   opacity: 1;
 }
-
-
 
 
 @media screen and (max-width: 769px) {

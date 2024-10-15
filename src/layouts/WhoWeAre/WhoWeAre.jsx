@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styles from "./WhoWeAre.module.css";
 import Image from "next/image";
 import contents from "@/data/WhoWeAre"; // text data
+import as from '../../../public/assets/222.png'
 
 const WhoWeAre = () => {
   const [path, setPath] = useState(1);
@@ -31,6 +32,7 @@ const WhoWeAre = () => {
     <section id="rólunk" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.nav}>
+
           {contents.map((item) => (
             <div className={styles.navEl} key={item.id}>
               <h3
@@ -43,6 +45,7 @@ const WhoWeAre = () => {
           ))}
         </div>
         {renderContent(contents.find((content) => content.id === path))}
+        
       </div>
     </section>
   );
