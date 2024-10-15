@@ -14,13 +14,12 @@ const WhoWeAreMobile = () => {
           <div className={styles.contentCotnainer}>
             <h2 className={styles.h2}>{content.title}</h2>
             <div className={styles.textContainer}>
-              {/* Szöveges tartalom megjelenítése */}
+              {/* Szöveges tartalom megjelenítése HTML formázással */}
               {content.text.map((paragraph, index) => (
-                <p key={index}>
-                  {index === 0
-                    ? paragraph.split(".")[0] + ". " + paragraph.slice(paragraph.indexOf(".") + 1)
-                    : paragraph}
-                </p>
+                <p
+                  key={index}
+                  dangerouslySetInnerHTML={{ __html: paragraph }} // HTML szöveg megjelenítése
+                />
               ))}
               <div className={styles.imageContainer}>
                 <Image className={styles.elip} alt="" src={content.image} />
