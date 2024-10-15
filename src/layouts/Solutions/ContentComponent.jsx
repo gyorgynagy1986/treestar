@@ -8,7 +8,6 @@ const ContentComponent = ({ content }) => {
       <div className={styles.container}>
         <div className={styles.fotoContainer}>
           <Image
-            layout="responsive"
             priority
             src={content.image}
             alt={content.title}

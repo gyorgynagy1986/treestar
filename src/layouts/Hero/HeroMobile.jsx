@@ -13,7 +13,6 @@ const HeroMobile = () => {
         </div>
         <Image
           priority
-          layout="responsive"
           className={styles.HeroMobile}
           src={Hero}
           alt="treestar"

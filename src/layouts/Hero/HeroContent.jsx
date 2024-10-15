@@ -32,7 +32,6 @@ const HeroContent = ({ currentPage }) => {
       />
       <Image
         priority
-        layout="responsive"
         className={`${styles.image} ${fade ? styles.fadeIn : styles.fadeOut}`}
         src={activePage === 0 ? HeroImage : HeroImage2}
         alt="Hero image"
