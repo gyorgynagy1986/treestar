@@ -136,7 +136,7 @@
 @media screen and (max-width: 444px) {
   .titleContainer1 {
     top: -6.5rem;
-    padding-left: 2vw;
+    padding-left: 0vw;
   }
 }
 
@@ -221,10 +221,10 @@
 
 @media screen and (max-width: 437px) {
   .imagesContainer {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    row-gap: 7rem;
-    column-gap: 5rem;
+    row-gap: 6rem;
+    column-gap: 4rem;
     justify-items: center;
   }
 }
@@ -248,6 +248,12 @@
 @media screen and (max-width: 768px) {
   .imagesContainer img {
     max-width: 12.7rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .imagesContainer img {
+    max-width: 10.7rem;
   }
 }
 
