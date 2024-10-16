@@ -1,12 +1,14 @@
 .nav {
   padding: 0 5vw;
+  z-index: 9999999;
+
 }
 
 .navSticky {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 99999999;
+  z-index: 9999999;
   width: 100%;
   padding-left: 5vw;
   padding-right: 5vw;

@@ -18,6 +18,8 @@ const Hero = () => {
   const menuRef = useRef(null);
   const [stickyNav, setStickyNav] = useState(false);
 
+  console.log(stickyNav)
+
   const handlePaginationChange = (newPage) => {
     setCurrentPage(newPage);
   };
@@ -39,19 +41,23 @@ const Hero = () => {
       },
       { rootMargin: "0px 20px 20px 20px" }
     );
-
-    observer.observe(menuRef.current);
+  
+    setTimeout(() => {
+      observer.observe(menuRef.current);
+    }, 1000); // 1 másodperc késleltetés
   }, []);
 
 
 
   return (
-    <section data-aos="fade"
+    <section ref={menuRef} className={styles.section}>
+      <div  data-aos="fade"
     data-aos-offset="100"
-    data-aos-delay="50" ref={menuRef} className={styles.section}>
-      {stickyNav && <StickyNav sticky={true} />}
+    data-aos-delay="50"  >
+    
+    {stickyNav && <StickyNav sticky={true} />}
 
-      <div className={styles.DesktopContainer}>
+      <div   className={styles.DesktopContainer}>
           <HeroContent currentPage={currentPage} />
           <PaginationControls
             currentPage={currentPage}
@@ -70,6 +76,7 @@ const Hero = () => {
             autoPlayMobile={true}
             interval={15000} // Automatikus lapozás finomítás
           />
+        </div>
         </div>
     </section>
   );

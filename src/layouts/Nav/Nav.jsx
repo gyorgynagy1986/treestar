@@ -12,6 +12,8 @@ const Nav = ({ sticky }) => {
   const [isHovering, setIsHovering] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // State for mobile menu toggle
 
+  console.log(sticky, 'from NAV')
+
   useEffect(() => {
     const htmlElement = document.documentElement;
     if (mobileMenuOpen) {

@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useState, useRef } from "react";
 import styles from "./PaginationControls.module.css";
 import Image from "next/image";
@@ -16,7 +14,6 @@ const PaginationControls = ({
   autoPlayMobile = true,
 }) => {
   const [touchStartX, setTouchStartX] = useState(0);
-  const [touchEndX, setTouchEndX] = useState(0);
   const autoSlide = useRef(null); // Az automatikus lapozást kezelő változó referencia
   const size = useWindowSize(); // Képernyő méretének figyelése
 
@@ -33,7 +30,7 @@ const PaginationControls = ({
     return () => {
       clearInterval(autoSlide.current); // Tisztítás, amikor a komponens eltávolításra kerül
     };
-  }, [currentPage, totalPages, onChange, interval, size.width, autoPlayDesktop, autoPlayMobile]);
+  }, [totalPages, onChange, interval, size.width, autoPlayDesktop, autoPlayMobile]);
 
   // Swipe event kezelése
   const handleTouchStart = (e) => {
@@ -41,24 +38,15 @@ const PaginationControls = ({
   };
 
   const handleTouchEnd = (e) => {
-    setTouchEndX(e.changedTouches[0].screenX);
-    handleSwipe();
+    const touchEndX = e.changedTouches[0].screenX;
+    handleSwipe(touchStartX, touchEndX);
   };
 
-  const handleSwipe = () => {
-    if (touchStartX - touchEndX > 50) {
+  const handleSwipe = (startX, endX) => {
+    if (startX - endX > 50) {
       onChange(currentPage < totalPages - 1 ? currentPage + 1 : 0);
-    } else if (touchEndX - touchStartX > 50) {
+    } else if (endX - startX > 50) {
       onChange(currentPage > 0 ? currentPage - 1 : totalPages - 1);
-    }
-
-    // Újraindítja az automatikus lapozást
-    clearInterval(autoSlide.current);
-    const shouldAutoPlay = size.width > 768 ? autoPlayDesktop : autoPlayMobile;
-    if (shouldAutoPlay) {
-      autoSlide.current = setInterval(() => {
-        onChange((currentPage + 1) % totalPages);
-      }, interval);
     }
   };
 
