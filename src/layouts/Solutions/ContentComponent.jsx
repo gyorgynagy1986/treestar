@@ -7,11 +7,7 @@ const ContentComponent = ({ content }) => {
     <section id="megoldások">
       <div className={styles.container}>
         <div className={styles.fotoContainer}>
-          <Image
-            priority
-            src={content.image}
-            alt={content.title}
-          />
+          <Image priority src={content.image} alt={content.title} />
         </div>
         <div className={styles.textContainer}>
           <h3 className={styles.h3}>{content.title}</h3>

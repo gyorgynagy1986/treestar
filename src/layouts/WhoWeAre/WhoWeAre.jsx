@@ -13,12 +13,12 @@ const WhoWeAre = () => {
   const renderContent = ({ text, image, svgText }) => (
     <div className={styles.contentContainer}>
       <div className={styles.textContainer}>
-      {text.map((paragraph, index) => (
-                <p
-                  key={index}
-                  dangerouslySetInnerHTML={{ __html: paragraph }} // HTML szöveg megjelenítése
-                />
-              ))}
+        {text.map((paragraph, index) => (
+          <p
+            key={index}
+            dangerouslySetInnerHTML={{ __html: paragraph }} // HTML szöveg megjelenítése
+          />
+        ))}
       </div>
 
       <div className={styles.imageContainer}>

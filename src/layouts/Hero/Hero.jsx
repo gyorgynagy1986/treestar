@@ -1,29 +1,46 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./Hero.module.css";
 import PaginationControls from "@/utils/PaginationControls";
 import HeroContent from "./HeroContent"; // Importáld a HeroContent komponenst
 import HeroMobile from "./HeroMobile";
-// import StickyNav from "../Nav/Nax";
+import StickyNav from "../Nav/Nav";
 
 const Hero = () => {
   const [currentPage, setCurrentPage] = useState(0); // Aktuális oldal állapota
   const totalPages = 2; // Összes oldal (pl. 2 van)
+
+  const menuRef = useRef(null);
+  const [stickyNav, setStickyNav] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStickyNav(false);
+        } else {
+          setStickyNav(true);
+        }
+      },
+      { rootMargin: "0px 300px 300px 20px" },
+    );
+
+    observer.observe(menuRef.current);
+  }, []);
 
   const handlePaginationChange = (newPage) => {
     setCurrentPage(newPage);
   };
 
   return (
-    <section className={styles.section}>
-      {/* Csak akkor rendereljük a HeroContent-et, ha desktop nézetben vagyunk */}
+    <section ref={menuRef} className={styles.section}>
+      {stickyNav && <StickyNav sticky={true} />}
+
       <div className={styles.DesktopContainer}>
         <HeroContent currentPage={currentPage} />{" "}
       </div>
-
       <HeroMobile />
-
       <PaginationControls
         currentPage={currentPage}
         totalPages={totalPages}

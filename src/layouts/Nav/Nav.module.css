@@ -6,13 +6,12 @@
   position: fixed;
   top: 0;
   left: 0;
-  padding-top: -2rem;
-  padding-bottom: -2rem;
   z-index: 99999999;
   width: 100%;
   padding-left: 5vw;
   padding-right: 5vw;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
   box-shadow: rgba(0, 0, 0, 0.114) 0px 25px 50px -12px;
 }
 
@@ -24,6 +23,15 @@
   padding: 4rem 0rem;
 }
 
+.containerSticky {
+  display: flex;
+  justify-content: space-between;
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  padding: 2rem 0rem;
+}
+
+
 .logoContainer {
   display: flex;
   justify-content: center;
@@ -34,6 +42,12 @@
   .container {
     display: none;
   }
+
+  .containerSticky {
+    display: none;
+
+  }
+
 }
 
 .logoContainerTree {
