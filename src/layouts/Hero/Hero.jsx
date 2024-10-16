@@ -23,10 +23,18 @@ const Hero = () => {
           setStickyNav(true);
         }
       },
-      { rootMargin: "0px 300px 300px 20px" },
+      { rootMargin: "0px 300px 300px 20px" }
     );
 
-    observer.observe(menuRef.current);
+    if (menuRef.current) {
+      observer.observe(menuRef.current);
+    }
+
+    return () => {
+      if (menuRef.current) {
+        observer.unobserve(menuRef.current);
+      }
+    };
   }, []);
 
   const handlePaginationChange = (newPage) => {
@@ -38,7 +46,7 @@ const Hero = () => {
       {stickyNav && <StickyNav sticky={true} />}
 
       <div className={styles.DesktopContainer}>
-        <HeroContent currentPage={currentPage} />{" "}
+        <HeroContent currentPage={currentPage} />
       </div>
       <HeroMobile />
       <PaginationControls

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
 import Image from "next/image";
 import HeroImage from "../../../public/assets/layouts/hero.webp";
@@ -12,24 +12,24 @@ const HeroContent = ({ currentPage }) => {
   const [activePage, setActivePage] = useState(currentPage);
   const data = activePage === 0 ? heroData.section1 : heroData.section2;
 
-  // Preload images for optimization
-  useEffect(() => {
-    const imagesToPreload = [
-      getOptimizedImageUrl(HeroImage.src),
-      getOptimizedImageUrl(HeroImage2.src),
-    ];
-    imagesToPreload.forEach((src) => {
-      const img = new window.Image();
-      img.src = src; // Betöltéshez elegendő beállítani a kép optimalizált src-jét
-    });
-  }, []);
+  // Preload the next image for optimization
+  const prefetchImage = (nextPage) => {
+    if (typeof window !== "undefined" && (nextPage === 0 || nextPage === 1)) {
+      const nextImage = new window.Image();
+      const optimizedUrl = getOptimizedImageUrl(
+        nextPage === 0 ? HeroImage.src : HeroImage2.src
+      );
+      nextImage.src = optimizedUrl;
+    }
+  };
 
-  // Frissíti az aktív oldalt és a fade effektust
+  // Update the active page and handle the fade effect
   useEffect(() => {
     setFade(false); // Eltűnés effekt
     const timer = setTimeout(() => {
       setActivePage(currentPage);
       setFade(true);
+      prefetchImage(currentPage === 0 ? 1 : 0); // Következő kép előtöltése
     }, 5);
 
     return () => clearTimeout(timer);
