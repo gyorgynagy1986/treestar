@@ -16,11 +16,21 @@
   border: 1px solid #9fd131;
   padding: 2rem;
   border-radius: 2.5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   -webkit-border-radius: 2.5rem;
   -moz-border-radius: 2.5rem;
   -ms-border-radius: 2.5rem;
   -o-border-radius: 2.5rem;
 }
+
+@media screen and (max-width: 404px) {
+  .itemsContainer {
+    min-height: 13rem;
+  }
+}
+
 
 .h1 {
   font-size: 16px;
@@ -42,4 +52,16 @@
 .HeroMobile {
   width: 100%;
   height: auto;
+}
+
+@media screen and (max-width: 377px) {
+  .h1 {
+    font-size: 15px;
+   
+  }
+  
+  .p {
+    font-size: 15px;
+   
+  }
 }

@@ -10,6 +10,7 @@ import getOptimizedImageUrl from "@/utils/getOptimizedImageUrl";
 const HeroMobile = ({ currentPage, onChange, totalPages, autoPlayMobile, interval }) => {
   const [fade, setFade] = useState(false);
   const [activePage, setActivePage] = useState(currentPage);
+  const [touchStartX, setTouchStartX] = useState(0);
 
   // Preload the next image for optimization
   const prefetchImage = (nextPage) => {
@@ -44,10 +45,35 @@ const HeroMobile = ({ currentPage, onChange, totalPages, autoPlayMobile, interva
     }
   }, [activePage, onChange, totalPages, autoPlayMobile, interval]);
 
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.changedTouches[0].screenX);
+  };
+
+  const handleTouchEnd = (e) => {
+    const touchEndX = e.changedTouches[0].screenX;
+    handleSwipe(touchStartX, touchEndX);
+  };
+
+  const handleSwipe = (startX, endX) => {
+    if (startX - endX > 50) {
+      // Balra húzás - következő oldal
+      onChange(activePage < totalPages - 1 ? activePage + 1 : 0);
+    }
+
+    if (endX - startX > 50) {
+      // Jobbra húzás - előző oldal
+      onChange(activePage > 0 ? activePage - 1 : totalPages - 1);
+    }
+  };
+
   const data = activePage === 0 ? heroData.section1 : heroData.section2;
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <div className={styles.itemsContainer}>
         <h1 className={styles.h1}>{data[0].title}</h1>
         <p className={styles.p}>{data[0].text}</p>

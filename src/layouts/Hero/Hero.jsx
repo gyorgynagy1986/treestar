@@ -51,11 +51,9 @@ const Hero = () => {
 
   return (
     <section ref={menuRef} className={styles.section}>
-      <div  data-aos="fade"
-    data-aos-offset="100"
-    data-aos-delay="50"  >
+      {stickyNav && <StickyNav sticky={true} />}
+      <div  data-aos="fade" data-aos-offset="100"data-aos-delay="50">
     
-    {stickyNav && <StickyNav sticky={true} />}
 
       <div   className={styles.DesktopContainer}>
           <HeroContent currentPage={currentPage} />
