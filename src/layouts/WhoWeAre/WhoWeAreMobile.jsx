@@ -1,19 +1,26 @@
-import React from "react";
+"use client"
+
+
+import React, {  } from "react";
 import styles from "./WhoWeAreMobile.module.css";
 import Image from "next/image";
 import Mobile from "../../../public/assets/mobile.png";
 import contents from "@/data/WhoWeAre"; // Tartalom tömb importálása
 
 const WhoWeAreMobile = () => {
+
+
+
+
   return (
-    <section className={styles.section}>
+    <section  className={styles.section}>
       {/* Loopolva a dinamikus tartalom a 'contents' tömbből */}
       {contents.map((content) => (
         <div key={content.id} className={styles.container}>
           <Image className={styles.cover} src={Mobile} alt="#" />
-          <div className={styles.contentCotnainer}>
+          <div  className={styles.contentCotnainer}>
             <h2 className={styles.h2}>{content.title}</h2>
-            <div className={styles.textContainer}>
+            <div   className={styles.textContainer}>
               {/* Szöveges tartalom megjelenítése HTML formázással */}
               {content.text.map((paragraph, index) => (
                 <p

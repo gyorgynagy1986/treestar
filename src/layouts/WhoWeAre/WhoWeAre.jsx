@@ -1,5 +1,9 @@
 "use client";
-import React, { useState } from "react";
+
+import "aos/dist/aos.css"; // You can also use <link> for styles
+import AOS from "aos";
+
+import React, { useState, useEffect } from "react";
 import styles from "./WhoWeAre.module.css";
 import Image from "next/image";
 import contents from "@/data/WhoWeAre"; // text data
@@ -10,8 +14,17 @@ import as2 from "../../../public/assets/444.png";
 const WhoWeAre = () => {
   const [path, setPath] = useState(1);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+    });
+  }, []);
+
+
   const renderContent = ({ text, image, svgText }) => (
-    <div className={styles.contentContainer}>
+    <div data-aos="fade-up"
+    data-aos-offset="100"
+    data-aos-delay="50" className={styles.contentContainer}>
       <div className={styles.textContainer}>
         {text.map((paragraph, index) => (
           <p

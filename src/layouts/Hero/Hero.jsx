@@ -1,5 +1,8 @@
 "use client";
 
+import "aos/dist/aos.css"; // You can also use <link> for styles
+import AOS from "aos";
+
 import React, { useState, useRef, useEffect } from "react";
 import styles from "./Hero.module.css";
 import PaginationControls from "@/utils/PaginationControls";
@@ -19,6 +22,11 @@ const Hero = () => {
     setCurrentPage(newPage);
   };
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+    });
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,7 +46,9 @@ const Hero = () => {
 
 
   return (
-    <section ref={menuRef} className={styles.section}>
+    <section data-aos="fade"
+    data-aos-offset="100"
+    data-aos-delay="50" ref={menuRef} className={styles.section}>
       {stickyNav && <StickyNav sticky={true} />}
 
       <div className={styles.DesktopContainer}>

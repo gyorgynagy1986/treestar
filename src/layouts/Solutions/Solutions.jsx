@@ -1,5 +1,8 @@
 "use client";
 
+import "aos/dist/aos.css"; // You can also use <link> for styles
+import AOS from "aos";
+
 import React, { useState, useEffect } from "react";
 import styles from "./Solutions.module.css";
 import PaginationControls from "@/utils/PaginationControls";
@@ -15,6 +18,14 @@ const Solutions = () => {
 
   const totalPages = content.length;
   const size = useWindowSize(); // Képernyő méretének figyelése
+
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1500,
+    });
+  }, []);
+
 
   // Képek előtöltése az optimalizált URL segítségével
   const prefetchImages = (nextPage) => {
@@ -74,6 +85,8 @@ const Solutions = () => {
 
   return (
     <section
+     data-aos="fade"
+      data-aos-offset="100"
       className={styles.section}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
