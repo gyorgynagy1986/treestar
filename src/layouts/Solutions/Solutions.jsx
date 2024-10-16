@@ -6,6 +6,7 @@ import PaginationControls from "@/utils/PaginationControls";
 import ContentComponent from "./ContentComponent";
 import content from "@/data/solutionData"; // text data
 import getOptimizedImageUrl from "@/utils/getOptimizedImageUrl"; // Optimalizált kép URL generálás
+import useWindowSize from "@/utils/useWindowSize"; // Hook a képernyőméret figyeléséhez
 
 const Solutions = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -13,12 +14,19 @@ const Solutions = () => {
   const [touchEndX, setTouchEndX] = useState(0);
 
   const totalPages = content.length;
+  const size = useWindowSize(); // Képernyő méretének figyelése
 
   // Képek előtöltése az optimalizált URL segítségével
   const prefetchImages = (nextPage) => {
     if (nextPage >= 0 && nextPage < totalPages) {
       const nextImage = new Image();
-      const optimizedUrl = getOptimizedImageUrl(content[nextPage].image.src); // Optimalizált URL
+      // Válasszuk ki a megfelelő képet a képernyőméret alapján
+      const imageSrc =
+        size.width <= 768
+          ? content[nextPage].imageMobile.src // Mobil kép
+          : content[nextPage].image.src; // Desktop kép
+
+      const optimizedUrl = getOptimizedImageUrl(imageSrc); // Optimalizált URL
       nextImage.src = optimizedUrl; // Ezt töltjük elő
     }
   };
@@ -42,14 +50,14 @@ const Solutions = () => {
     if (touchStartX - touchEndX > 50) {
       // Balra húzás - következő oldal
       handlePaginationChange(
-        currentPage < totalPages - 1 ? currentPage + 1 : 0,
+        currentPage < totalPages - 1 ? currentPage + 1 : 0
       );
     }
 
     if (touchEndX - touchStartX > 50) {
       // Jobbra húzás - előző oldal
       handlePaginationChange(
-        currentPage > 0 ? currentPage - 1 : totalPages - 1,
+        currentPage > 0 ? currentPage - 1 : totalPages - 1
       );
     }
   };
@@ -58,9 +66,11 @@ const Solutions = () => {
     // Előtöltjük a következő képet, amikor az oldal változik
     const nextPage = currentPage + 1 < totalPages ? currentPage + 1 : 0;
     prefetchImages(nextPage);
-  }, [currentPage]);
+  }, [currentPage, size.width]);
 
   const currentContent = content[currentPage];
+  const currentImage =
+    size.width <= 768 ? currentContent.imageMobile : currentContent.image;
 
   return (
     <section
@@ -68,7 +78,7 @@ const Solutions = () => {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <ContentComponent content={currentContent} />
+      <ContentComponent content={{ ...currentContent, image: currentImage }} />
       <PaginationControls
         currentPage={currentPage}
         totalPages={totalPages}
