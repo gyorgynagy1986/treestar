@@ -6,7 +6,7 @@ import PaginationControls from "@/utils/PaginationControls";
 import HeroContent from "./HeroContent"; // Desktop verzióhoz
 import HeroMobile from "./HeroMobile"; // Mobil verzióhoz
 import StickyNav from "../Nav/Nav";
-import useWindowSize from "@/utils/useWindowSize";
+// import useWindowSize from "@/utils/useWindowSize";
 
 const Hero = () => {
   const [currentPage, setCurrentPage] = useState(0); // Aktuális oldal állapota
