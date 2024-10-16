@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useLayoutEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./Hero.module.css";
 import PaginationControls from "@/utils/PaginationControls";
 import HeroContent from "./HeroContent"; // Desktop verzióhoz
@@ -11,7 +11,6 @@ import StickyNav from "../Nav/Nav";
 const Hero = () => {
   const [currentPage, setCurrentPage] = useState(0); // Aktuális oldal állapota
   const totalPages = 2; // Összes oldal (pl. 2 van)
-  // const size = useWindowSize(); // Képernyő méretének figyelése
 
   const menuRef = useRef(null);
   const [stickyNav, setStickyNav] = useState(false);
@@ -19,6 +18,23 @@ const Hero = () => {
   const handlePaginationChange = (newPage) => {
     setCurrentPage(newPage);
   };
+
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStickyNav(false);
+        } else {
+          setStickyNav(true);
+        }
+      },
+      { rootMargin: "0px 20px 20px 20px" }
+    );
+
+    observer.observe(menuRef.current);
+  }, []);
+
 
 
   return (
