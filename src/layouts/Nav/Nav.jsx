@@ -6,7 +6,7 @@ import styles from "./Nav.module.css";
 import Logo from "../../../public/assets/logo.svg";
 import Tree from "../../../public/assets/tree.svg";
 import Hami from "../../../public/assets/icons/hambi.svg";
-import CloseIcon from "../../../public/assets/icons/hambi.svg"; // Correct Close icon reference
+import CloseIcon from "../../../public/assets/icons/close.svg"; // Correct Close icon reference
 
 const Nav = ({ sticky }) => {
   const [isHovering, setIsHovering] = useState(false);
