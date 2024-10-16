@@ -50,6 +50,7 @@
   .textContainer {
     width: 100%;
     gap: 2rem;
+    padding-left: 2rem;
   }
 }
 
