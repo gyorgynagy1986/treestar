@@ -34,21 +34,18 @@ const WhoWeAre = () => {
         <Image
           alt="treestar"
           style={{ opacity: path === 1 ? "1" : "0" }}
-          priority
           src={as}
           className={styles.imgpng}
         />
         <Image
           alt="treestar"
           style={{ opacity: path === 2 ? "1" : "0" }}
-          priority
           src={as1}
           className={styles.imgpng}
         />
         <Image
           alt="treestar"
           style={{ opacity: path === 3 ? "1" : "0" }}
-          priority
           src={as2}
           className={styles.imgpng}
         />
