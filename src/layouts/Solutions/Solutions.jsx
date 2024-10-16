@@ -83,7 +83,9 @@ const Solutions = () => {
         currentPage={currentPage}
         totalPages={totalPages}
         onChange={handlePaginationChange}
-        interval={15000} // auto mozgás finomítás
+        interval={20000} // auto mozgás finomítás
+        autoPlayDesktop = {true}
+        autoPlayMobile = {false}
       />
     </section>
   );

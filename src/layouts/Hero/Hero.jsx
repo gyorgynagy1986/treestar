@@ -53,6 +53,8 @@ const Hero = () => {
         currentPage={currentPage}
         totalPages={totalPages}
         onChange={handlePaginationChange}
+        autoPlayDesktop = {true}
+        autoPlayMobile = {true}
         interval={15000} // Automatikus lapozás finomítás
       />
     </section>

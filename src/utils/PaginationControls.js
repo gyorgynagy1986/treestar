@@ -5,27 +5,35 @@ import styles from "./PaginationControls.module.css";
 import Image from "next/image";
 import Left from "../../public/assets/left.svg";
 import Right from "../../public/assets/right.svg";
+import useWindowSize from "@/utils/useWindowSize";
 
 const PaginationControls = ({
   currentPage,
   totalPages,
   onChange,
   interval = 3000,
+  autoPlayDesktop = true,
+  autoPlayMobile = true,
 }) => {
   const [touchStartX, setTouchStartX] = useState(0);
   const [touchEndX, setTouchEndX] = useState(0);
   const autoSlide = useRef(null); // Az automatikus lapozást kezelő változó referencia
+  const size = useWindowSize(); // Képernyő méretének figyelése
 
   // useEffect az automatikus lapozásért
   useEffect(() => {
-    autoSlide.current = setInterval(() => {
-      onChange((currentPage + 1) % totalPages);
-    }, interval);
+    const shouldAutoPlay = size.width > 768 ? autoPlayDesktop : autoPlayMobile;
+
+    if (shouldAutoPlay) {
+      autoSlide.current = setInterval(() => {
+        onChange((currentPage + 1) % totalPages);
+      }, interval);
+    }
 
     return () => {
       clearInterval(autoSlide.current); // Tisztítás, amikor a komponens eltávolításra kerül
     };
-  }, [currentPage, totalPages, onChange, interval]);
+  }, [currentPage, totalPages, onChange, interval, size.width, autoPlayDesktop, autoPlayMobile]);
 
   // Swipe event kezelése
   const handleTouchStart = (e) => {
@@ -46,9 +54,12 @@ const PaginationControls = ({
 
     // Újraindítja az automatikus lapozást
     clearInterval(autoSlide.current);
-    autoSlide.current = setInterval(() => {
-      onChange((currentPage + 1) % totalPages);
-    }, interval);
+    const shouldAutoPlay = size.width > 768 ? autoPlayDesktop : autoPlayMobile;
+    if (shouldAutoPlay) {
+      autoSlide.current = setInterval(() => {
+        onChange((currentPage + 1) % totalPages);
+      }, interval);
+    }
   };
 
   return (
