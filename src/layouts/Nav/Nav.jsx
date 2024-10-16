@@ -1,4 +1,8 @@
 "use client";
+
+import "aos/dist/aos.css"; // You can also use <link> for styles
+import AOS from "aos";
+
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,7 +16,11 @@ const Nav = ({ sticky }) => {
   const [isHovering, setIsHovering] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // State for mobile menu toggle
 
-  console.log(sticky, 'from NAV')
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+    });
+  }, []);
 
   useEffect(() => {
     const htmlElement = document.documentElement;
@@ -79,7 +87,7 @@ const Nav = ({ sticky }) => {
       {/* Desktop Nav */}
       <div className={`${sticky ? styles.containerSticky : styles.container}`}>
         <div className={styles.logoContainer}>
-          <Image src={Logo} alt="trestar logo" />
+          <Image data-aos="fade-right" data-aos-offset="100"data-aos-delay="30" src={Logo} alt="trestar logo" />
         </div>
         <div className={styles.navContainer}>
           <ul className={styles.ul}>
