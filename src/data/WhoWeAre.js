@@ -35,7 +35,7 @@ const contents = [
     ],
     image: Elip3,
     svgText:
-      "fejlesztés  &nbsp;&nbsp;•&nbsp; &nbsp; felhasználói élmény &nbsp; &nbsp;•&nbsp; &nbsp; modern technológiák  &nbsp;&nbsp;•&nbsp; &nbsp; karbantartás &nbsp; &nbsp;•&nbsp; &nbsp; kutatás &nbsp; &nbsp;• &nbsp; &nbsp; tervezés&nbsp;  &nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;",
+      "fejlesztés  &nbsp;&nbsp;•&nbsp; &nbsp; felhasználói élmény &nbsp; &nbsp;•&nbsp; &nbsp; modern technológiák  &nbsp;&nbsp;•&nbsp; &nbsp; karbantartás &nbsp; &nbsp;•&nbsp; &nbsp; kutatás &nbsp; &nbsp;• &nbsp; &nbsp; tervezés &nbsp;• &nbsp;&nbsp;&nbsp;",
   },
 ];
 
