@@ -30,7 +30,14 @@ const PaginationControls = ({
     return () => {
       clearInterval(autoSlide.current); // Tisztítás, amikor a komponens eltávolításra kerül
     };
-  }, [totalPages, onChange, interval, size.width, autoPlayDesktop, autoPlayMobile]);
+  }, [
+    totalPages,
+    onChange,
+    interval,
+    size.width,
+    autoPlayDesktop,
+    autoPlayMobile,
+  ]);
 
   // Swipe event kezelése
   const handleTouchStart = (e) => {

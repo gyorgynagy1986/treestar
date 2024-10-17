@@ -87,7 +87,13 @@ const Nav = ({ sticky }) => {
       {/* Desktop Nav */}
       <div className={`${sticky ? styles.containerSticky : styles.container}`}>
         <div className={styles.logoContainer}>
-          <Image data-aos="fade-right" data-aos-offset="100"data-aos-delay="30" src={Logo} alt="trestar logo" />
+          <Image
+            data-aos="fade-right"
+            data-aos-offset="100"
+            data-aos-delay="30"
+            src={Logo}
+            alt="trestar logo"
+          />
         </div>
         <div className={styles.navContainer}>
           <ul className={styles.ul}>

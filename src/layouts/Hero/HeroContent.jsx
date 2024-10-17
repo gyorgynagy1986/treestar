@@ -17,7 +17,7 @@ const HeroContent = ({ currentPage }) => {
     if (typeof window !== "undefined" && (nextPage === 0 || nextPage === 1)) {
       const nextImage = new window.Image();
       const optimizedUrl = getOptimizedImageUrl(
-        nextPage === 0 ? HeroImage.src : HeroImage2.src
+        nextPage === 0 ? HeroImage.src : HeroImage2.src,
       );
       nextImage.src = optimizedUrl;
     }

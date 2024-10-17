@@ -1,7 +1,6 @@
 .nav {
   padding: 0 5vw;
   z-index: 9999999;
-
 }
 
 .navSticky {
@@ -33,7 +32,6 @@
   padding: 2rem 0rem;
 }
 
-
 .logoContainer {
   display: flex;
   justify-content: center;
@@ -47,9 +45,7 @@
 
   .containerSticky {
     display: none;
-
   }
-
 }
 
 .logoContainerTree {

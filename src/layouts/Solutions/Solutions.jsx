@@ -10,13 +10,19 @@ import ContentComponent from "./ContentComponent";
 import content from "@/data/solutionData"; // text data
 import getOptimizedImageUrl from "@/utils/getOptimizedImageUrl"; // Optimalizált kép URL generálás
 import useWindowSize from "@/utils/useWindowSize"; // Hook a képernyőméret figyeléséhez
+import useSwipe from "@/utils/useSwipe"; // Importáljuk a swipe hookot
 
 const Solutions = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const autoSlide = useRef(null);
-  const touchStartX = useRef(0);
   const size = useWindowSize(); // Képernyő méretének figyelése
   const totalPages = content.length;
+
+  // Swipe hook integrálása
+  const { handleTouchStart, handleTouchEnd } = useSwipe(
+    () => handlePaginationChange(currentPage < totalPages - 1 ? currentPage + 1 : 0), // Balra húzás
+    () => handlePaginationChange(currentPage > 0 ? currentPage - 1 : totalPages - 1)  // Jobbra húzás
+  );
 
   useEffect(() => {
     AOS.init({
@@ -42,31 +48,6 @@ const Solutions = () => {
     if (newPage >= 0 && newPage < totalPages) {
       setCurrentPage(newPage);
     }
-  };
-
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.changedTouches[0].screenX;
-  };
-
-  const handleTouchEnd = (e) => {
-    const touchEndX = e.changedTouches[0].screenX;
-    handleSwipe(touchStartX.current, touchEndX);
-  };
-
-  const handleSwipe = (startX, endX) => {
-    if (startX - endX > 50) {
-      // Balra húzás - következő oldal
-      handlePaginationChange(currentPage < totalPages - 1 ? currentPage + 1 : 0);
-    }
-
-    if (endX - startX > 50) {
-      // Jobbra húzás - előző oldal
-      handlePaginationChange(currentPage > 0 ? currentPage - 1 : totalPages - 1);
-    }
-
-    // Újraindítja az automatikus lapozást
-    clearInterval(autoSlide.current);
-    startAutoSlide();
   };
 
   const startAutoSlide = () => {

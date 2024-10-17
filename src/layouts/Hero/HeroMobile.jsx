@@ -6,18 +6,30 @@ import HeroImage2 from "../../../public/assets/layouts/heroMobile2.png";
 import heroData from "@/data/Hero";
 import PaginationControls from "@/utils/PaginationControls";
 import getOptimizedImageUrl from "@/utils/getOptimizedImageUrl";
+import useSwipe from "@/utils/useSwipe"; // Importáljuk a swipe hookot
 
-const HeroMobile = ({ currentPage, onChange, totalPages, autoPlayMobile, interval }) => {
+const HeroMobile = ({
+  currentPage,
+  onChange,
+  totalPages,
+  autoPlayMobile,
+  interval,
+}) => {
   const [fade, setFade] = useState(false);
   const [activePage, setActivePage] = useState(currentPage);
-  const [touchStartX, setTouchStartX] = useState(0);
+
+  // Swipe hook integrálása
+  const { handleTouchStart, handleTouchEnd } = useSwipe(
+    () => onChange(activePage < totalPages - 1 ? activePage + 1 : 0), // Balra húzás
+    () => onChange(activePage > 0 ? activePage - 1 : totalPages - 1)  // Jobbra húzás
+  );
 
   // Preload the next image for optimization
   const prefetchImage = (nextPage) => {
     if (typeof window !== "undefined" && (nextPage === 0 || nextPage === 1)) {
       const nextImage = new window.Image();
       const optimizedUrl = getOptimizedImageUrl(
-        nextPage === 0 ? HeroImage.src : HeroImage2.src
+        nextPage === 0 ? HeroImage.src : HeroImage2.src,
       );
       nextImage.src = optimizedUrl;
     }
@@ -44,27 +56,6 @@ const HeroMobile = ({ currentPage, onChange, totalPages, autoPlayMobile, interva
       return () => clearInterval(autoSlide);
     }
   }, [activePage, onChange, totalPages, autoPlayMobile, interval]);
-
-  const handleTouchStart = (e) => {
-    setTouchStartX(e.changedTouches[0].screenX);
-  };
-
-  const handleTouchEnd = (e) => {
-    const touchEndX = e.changedTouches[0].screenX;
-    handleSwipe(touchStartX, touchEndX);
-  };
-
-  const handleSwipe = (startX, endX) => {
-    if (startX - endX > 50) {
-      // Balra húzás - következő oldal
-      onChange(activePage < totalPages - 1 ? activePage + 1 : 0);
-    }
-
-    if (endX - startX > 50) {
-      // Jobbra húzás - előző oldal
-      onChange(activePage > 0 ? activePage - 1 : totalPages - 1);
-    }
-  };
 
   const data = activePage === 0 ? heroData.section1 : heroData.section2;
 

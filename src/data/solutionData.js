@@ -8,8 +8,6 @@ import photo2m from "../../public/assets/solutions/2m.png";
 import photo3m from "../../public/assets/solutions/3m.png";
 import photo4m from "../../public/assets/solutions/4m.png";
 
-
-
 const content = [
   {
     title: "Ingatlanmenedzsment",
@@ -19,7 +17,7 @@ const content = [
       "A fejlesztés során bevált technológiai megoldásokat integrálunk a gyors és hatékony bővíthetőség érdekében, ezáltal csökkentjük a fejlesztési időt és növeljük a platform megbízhatóságát.",
     ],
     image: photo1,
-    imageMobile:photo1m,
+    imageMobile: photo1m,
   },
   {
     title: "Felügyelet nélküli intelligens töltőhálózat",
@@ -28,8 +26,7 @@ const content = [
       "A felhasználók számára egyszerű és kényelmes közlekedést kínál, csökkentve a környezeti terhelést. A szolgáltatók számára pedig elérhetővé válik az áram szolgáltatás üzleti alapon, amely jelenleg gátja a töltő pontok terjedésének.",
     ],
     image: photo2,
-    imageMobile:photo2m,
-
+    imageMobile: photo2m,
   },
   {
     title: "Drón alapú öntözés és növényvédelem",
@@ -39,8 +36,7 @@ const content = [
       "Olyan technológiát szeretnénk biztosítani, amely több drónnal (flottában) képes rövidebb idő alatt végrehajtani a feladatokat.",
     ],
     image: photo3,
-    imageMobile:photo3m,
-
+    imageMobile: photo3m,
   },
 
   {
@@ -50,8 +46,7 @@ const content = [
       "A platform két fő eleme maga a mérés adatgyűjtő és folyamat vezérlési központ, valamint az ipari gépeket, berendezéseket, szenzorokat olvasó és vezérlő IoT eszközök. Az IoT eszközök képesek azokat a mérési adatokat biztosítani, ami alapján a folyamatok optimalizálhatók és vezérelhetők.",
     ],
     image: photo4,
-    imageMobile:photo4m,
-
+    imageMobile: photo4m,
   },
 ];
 

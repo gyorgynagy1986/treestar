@@ -20,11 +20,13 @@ const WhoWeAre = () => {
     });
   }, []);
 
-
   const renderContent = ({ text, image, svgText }) => (
-    <div data-aos="fade-up"
-    data-aos-offset="100"
-    data-aos-delay="50" className={styles.contentContainer}>
+    <div
+      data-aos="fade-up"
+      data-aos-offset="100"
+      data-aos-delay="50"
+      className={styles.contentContainer}
+    >
       <div className={styles.textContainer}>
         {text.map((paragraph, index) => (
           <p

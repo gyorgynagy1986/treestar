@@ -3,7 +3,8 @@
 import "aos/dist/aos.css"; // You can also use <link> for styles
 import AOS from "aos";
 
-import {useEffect } from "react";import styles from "./Footer.module.css";
+import { useEffect } from "react";
+import styles from "./Footer.module.css";
 import Image from "next/image";
 import logo from "../../../public/assets/logo.svg";
 import tel from "../../../public/assets/icons/tel.svg";
@@ -11,20 +12,24 @@ import email from "../../../public/assets/icons/email.svg";
 import { footerData } from "@/data/Footer";
 
 const Footer = () => {
-
   useEffect(() => {
     AOS.init({
       duration: 1200,
     });
   }, []);
 
-
   return (
     <footer id="kapcsolat" className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.contentContainer}>
           <div className={styles.logoContainer}>
-            <Image data-aos="fade-right" data-aos-offset="100"data-aos-delay="30"  src={logo} alt={footerData.logoAlt} />{" "}
+            <Image
+              data-aos="fade-right"
+              data-aos-offset="100"
+              data-aos-delay="30"
+              src={logo}
+              alt={footerData.logoAlt}
+            />{" "}
           </div>
           <div className={styles.legalContainer}>
             <p className={styles.year}>{footerData.year} © TreeStar</p>

@@ -1,3 +1,3 @@
 export const alt = {
-    name: 'TreeStar'
-}
+  name: "TreeStar",
+};

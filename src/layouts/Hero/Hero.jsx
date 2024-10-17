@@ -1,6 +1,6 @@
 "use client";
 
-import "aos/dist/aos.css"; // You can also use <link> for styles
+import "aos/dist/aos.css"; 
 import AOS from "aos";
 
 import React, { useState, useRef, useEffect } from "react";
@@ -17,8 +17,6 @@ const Hero = () => {
 
   const menuRef = useRef(null);
   const [stickyNav, setStickyNav] = useState(false);
-
-  console.log(stickyNav)
 
   const handlePaginationChange = (newPage) => {
     setCurrentPage(newPage);
@@ -39,23 +37,19 @@ const Hero = () => {
           setStickyNav(true);
         }
       },
-      { rootMargin: "0px 20px 20px 20px" }
+      { rootMargin: "0px 20px 20px 20px" },
     );
-  
+
     setTimeout(() => {
       observer.observe(menuRef.current);
     }, 1000); // 1 másodperc késleltetés
   }, []);
 
-
-
   return (
     <section ref={menuRef} className={styles.section}>
       {stickyNav && <StickyNav sticky={true} />}
-      <div  data-aos="fade" data-aos-offset="100"data-aos-delay="50">
-    
-
-      <div   className={styles.DesktopContainer}>
+      <div data-aos="fade" data-aos-offset="100" data-aos-delay="50">
+        <div className={styles.DesktopContainer}>
           <HeroContent currentPage={currentPage} />
           <PaginationControls
             currentPage={currentPage}
@@ -75,7 +69,7 @@ const Hero = () => {
             interval={15000} // Automatikus lapozás finomítás
           />
         </div>
-        </div>
+      </div>
     </section>
   );
 };

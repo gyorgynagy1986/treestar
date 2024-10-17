@@ -31,7 +31,6 @@
   }
 }
 
-
 .h1 {
   font-size: 16px;
   font-weight: 700;
@@ -57,11 +56,9 @@
 @media screen and (max-width: 377px) {
   .h1 {
     font-size: 15px;
-   
   }
-  
+
   .p {
     font-size: 15px;
-   
   }
 }
