@@ -47,6 +47,11 @@
   background-color: #9fd131;
   border-radius: 50%;
   margin: 0 1.75rem; /* Equal space on both sides of the dot */
+
+}
+
+.pDark {
+  color: white !important;
 }
 
 .p {
@@ -55,6 +60,8 @@
   line-height: 35.64px;
   color: black;
 }
+
+
 
 @media screen and (max-width: 768px) {
   .p {

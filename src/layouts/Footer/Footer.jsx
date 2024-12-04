@@ -10,6 +10,11 @@ import logo from "../../../public/assets/logo.svg";
 import tel from "../../../public/assets/icons/tel.svg";
 import email from "../../../public/assets/icons/email.svg";
 import { footerData } from "@/data/Footer";
+import dynamic from 'next/dynamic';
+import { useTheme } from '../../hooks/useTheme';
+
+const LogoDinamic = dynamic(() => import('./../../components/Logo'), { ssr: false });
+
 
 const Footer = () => {
   useEffect(() => {
@@ -18,18 +23,15 @@ const Footer = () => {
     });
   }, []);
 
+  const { isDarkMode } = useTheme();
+
+
   return (
     <footer id="kapcsolat" className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.contentContainer}>
           <div className={styles.logoContainer}>
-            <Image
-              data-aos="fade-right"
-              data-aos-offset="100"
-              data-aos-delay="30"
-              src={logo}
-              alt={footerData.logoAlt}
-            />{" "}
+          <LogoDinamic isDarkMode={isDarkMode} classN={true} />
           </div>
           <div className={styles.legalContainer}>
             <p className={styles.year}>{footerData.year} © TreeStar</p>

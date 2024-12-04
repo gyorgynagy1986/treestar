@@ -14,6 +14,7 @@ import StickyNav from "../Nav/Nav";
 const Hero = () => {
   const [currentPage, setCurrentPage] = useState(0); // Aktuális oldal állapota
   const totalPages = 2; // Összes oldal (pl. 2 van)
+ 
 
   const menuRef = useRef(null);
   const [stickyNav, setStickyNav] = useState(false);

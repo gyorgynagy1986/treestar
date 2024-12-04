@@ -1,9 +1,12 @@
-import React from "react";
-import styles from "./BannerText.module.css";
+'use client';
 
-import { bannertext } from "@/data/Banner";
+import React from 'react';
+import styles from './BannerText.module.css';
+
+import { bannertext } from '@/data/Banner';
 
 const BannerText = () => {
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
@@ -12,7 +15,7 @@ const BannerText = () => {
             {bannertext.map((item, index) => (
               <React.Fragment key={index}>
                 <div className={styles.dot}></div>
-                <p className={styles.p}>{item.name}</p>
+                <p className={`${styles.p} `}>{item.name}</p>
               </React.Fragment>
             ))}
           </div>

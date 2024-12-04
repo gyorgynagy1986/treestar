@@ -7,14 +7,19 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Nav.module.css";
-import Logo from "../../../public/assets/logo.svg";
 import Tree from "../../../public/assets/tree.svg";
 import Hami from "../../../public/assets/icons/hambi.svg";
 import CloseIcon from "../../../public/assets/icons/close.svg"; // Correct Close icon reference
+import { useTheme } from '../../hooks/useTheme';
+import dynamic from 'next/dynamic';
+
+const LogoDinamic = dynamic(() => import('./../../components/Logo'), { ssr: false });
 
 const Nav = ({ sticky }) => {
   const [isHovering, setIsHovering] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // State for mobile menu toggle
+
+  const { isDarkMode } = useTheme();
 
   useEffect(() => {
     AOS.init({
@@ -43,9 +48,11 @@ const Nav = ({ sticky }) => {
 
   return (
     <nav className={`${styles.nav} ${sticky && styles.navSticky}`}>
+      
       {/* Mobile Nav */}
       <div className={styles.mobileNav}>
-        <Image className={styles.mobileLogo} src={Logo} alt="logo" />
+      <LogoDinamic isDarkMode={isDarkMode} classN={true} />
+
         <div onClick={toggleMobileMenu} className={styles.hamburgerMenu}>
           <Image
             className={styles.mobilehambi}
@@ -60,8 +67,9 @@ const Nav = ({ sticky }) => {
         className={`${styles.mobileMenu} ${mobileMenuOpen ? styles.open : ""}`}
       >
         <div className={styles.mobileMenuHeader}>
-          <Image className={styles.menuLogo} src={Logo} alt="logo" />{" "}
-          {/* Logo inside the menu */}
+
+        <LogoDinamic isDarkMode={isDarkMode} classNMenu={true} />
+        {/* Logo inside the menu */}
           <div onClick={toggleMobileMenu} className={styles.closeButton}>
             <Image src={CloseIcon} alt="Close menu" /> {/* Close icon */}
           </div>
@@ -87,13 +95,7 @@ const Nav = ({ sticky }) => {
       {/* Desktop Nav */}
       <div className={`${sticky ? styles.containerSticky : styles.container}`}>
         <div className={styles.logoContainer}>
-          <Image
-            data-aos="fade-right"
-            data-aos-offset="100"
-            data-aos-delay="30"
-            src={Logo}
-            alt="trestar logo"
-          />
+          <LogoDinamic isDarkMode={isDarkMode} />
         </div>
         <div className={styles.navContainer}>
           <ul className={styles.ul}>

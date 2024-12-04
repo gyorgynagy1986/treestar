@@ -3,6 +3,8 @@ import "./globals.css";
 import { Montserrat } from "next/font/google";
 import Nav from "@/layouts/Nav/Nav";
 import Footer from "@/layouts/Footer/Footer";
+import { ThemeProvider } from './../context/ThemeContext';
+import Darkmode from '@/components/DarkToggleBtn'
 
 const monst = Montserrat({
   subsets: ["latin"],
@@ -18,9 +20,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={monst.className}>
+      <ThemeProvider>
+      <Darkmode />
         <Nav />
         {children}
         <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

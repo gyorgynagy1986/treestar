@@ -144,6 +144,7 @@
   color: #3f4d55;
 }
 
+
 @media screen and (max-width: 1088px) {
   .h1 {
     font-size: 17px;
@@ -167,4 +168,9 @@
 
 .imgTree {
   margin-top: 2rem;
+}
+
+
+.colorDark {
+  color: white !important;
 }
