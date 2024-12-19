@@ -53,7 +53,8 @@ const Nav = ({ sticky }) => {
       
       {/* Mobile Nav */}
       <div className={styles.mobileNav}>
-      <LogoDinamic isDarkMode={isDarkMode} classN={true} />
+        <div>      <LogoDinamic isDarkMode={isDarkMode} classN={true} />
+        </div>
 
         <div onClick={toggleMobileMenu} className={styles.hamburgerMenu}>
           <Image

@@ -8,6 +8,10 @@
   right: 2rem;
 }
 
+.label {
+  position: absolute;
+}
+
 @media screen and (max-width:600px) {
   .btnContainer {
   width: 100%;
@@ -33,7 +37,6 @@
 }
 
 .toggleCheckbox {
-  position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;

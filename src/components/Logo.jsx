@@ -13,6 +13,7 @@ const Logo = ({isDarkMode, classN, classNMenu}) => {
             data-aos="fade-right"
             data-aos-offset="100"
             data-aos-delay="30"
+            priority
             src={!isDarkMode ? LogoPhoto : LogoDark }
             alt="trestar logo"
         />
