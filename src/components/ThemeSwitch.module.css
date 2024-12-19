@@ -1,5 +1,4 @@
 /* Láthatatlan checkbox az interakcióhoz */
-
 .btnContainer {
   width: max-content;
   position: fixed;
@@ -8,35 +7,29 @@
   right: 2rem;
 }
 
-.label {
-  position: absolute;
-}
-
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
   .btnContainer {
-  width: 100%;
-  position:unset;
-  justify-content: center;
-  align-items: center;
+    width: 100%;
+    position: unset;
+    justify-content: center;
+    align-items: center;
   }
-  
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
   .btnContainer {
-   display: none;
+    display: none;
   }
-  
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
   .btnContainerMobile {
-   display: flex !important;
+    display: flex !important;
   }
-  
 }
 
 .toggleCheckbox {
+  position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
@@ -46,97 +39,87 @@
 /* A kapcsoló háttere */
 .toggleSlot {
   position: relative;
-  height: 5em; /* Csökkentett magasság */
-  width: 10em; /* Csökkentett szélesség */
-  border: 2px solid #e4e7ec; /* Vékonyabb keret */
-  border-radius: 5em; /* Ívelt sarkok */
+  height: 5em;
+  width: 10em;
+  border: 2px solid #e4e7ec;
+  border-radius: 5em;
   background-color: white;
-  box-shadow: 0px 5px 15px #e4e7ec85; /* Kisebb árnyék */
+  box-shadow: 0px 5px 15px #e4e7ec85;
+  overflow: hidden; /* Fontos a kilógás megakadályozására */
   transition: background-color 250ms;
   cursor: pointer;
-
 }
 
 .toggleCheckbox:checked ~ .toggleSlot {
   background-color: #374151;
   cursor: pointer;
-
 }
 
 /* A gomb */
 .toggleButton {
   cursor: pointer;
-
-  transform: translate(5.5em, 0.75em); /* Csökkentett eltolás */
+  transform: translate(5.5em, 0.75em);
   position: absolute;
-  height: 2.2em; /* Csökkentett méret */
-  width: 2.2em; /* Csökkentett méret */
+  height: 2.2em;
+  width: 2.2em;
   border-radius: 50%;
   top: 2.5px;
-  box-shadow: inset 0px 0px 0px 0.5em #93cc00; /* Kisebb belső árnyék */
+  box-shadow: inset 0px 0px 0px 0.5em #93cc00;
   transition: background-color 250ms, border-color 250ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
 }
 
 .toggleCheckbox:checked ~ .toggleSlot .toggleButton {
   background-color: #485367;
-  box-shadow: inset 0px 0px 0px 0.5em white; /* Kisebb belső árnyék */
-  transform: translate(1.5em, 0.75em); /* Csökkentett eltolás */
+  box-shadow: inset 0px 0px 0px 0.5em white;
+  transform: translate(1.5em, 0.75em);
 }
 
 /* Nap ikon (animációval) */
 .sunIcon {
   position: absolute;
-  height: 3em; /* Csökkentett méret */
-  width: 3em; /* Csökkentett méret */
+  height: 2.5em;
+  width: 2.5em;
   color: #93cc00;
   cursor: pointer;
 }
 
 .sunIconWrapper {
   position: absolute;
-  height: 3em; /* Csökkentett méret */
-  width: 3em; /* Csökkentett méret */
+  height: 2.5em;
+  width: 2.5em;
+  top: 50%;
+  left: 1em;
+  transform: translateY(-50%);
   opacity: 1;
-  top: -2px;
-  cursor: pointer;
-
-  transform: translate(1em, 1em) rotate(15deg); /* Csökkentett pozíció */
-  transform-origin: 50% 50%;
   transition: opacity 150ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
 }
 
 .toggleCheckbox:checked ~ .toggleSlot .sunIconWrapper {
   opacity: 0;
-  transform: translate(1.5em, 1em) rotate(0deg); /* Csökkentett pozíció */
-  cursor: pointer;
-
+  transform: translateY(-50%) scale(0.8);
 }
 
 /* Hold ikon (animációval) */
 .moonIcon {
   position: absolute;
-  height: 3em; /* Csökkentett méret */
-  width: 3em; /* Csökkentett méret */
+  height: 2.5em;
+  width: 2.5em;
   color: white;
   cursor: pointer;
-
 }
 
 .moonIconWrapper {
   position: absolute;
-  cursor: pointer;
-
-  height: 3em; /* Csökkentett méret */
-  top: -2px;
-  right: 48px;
-  width: 3em; /* Csökkentett méret */
+  height: 2.5em;
+  width: 2.5em;
+  top: 50%;
+  right: 1em;
+  transform: translateY(-50%);
   opacity: 0;
-  transform: translate(6em, 1em) rotate(0deg); /* Csökkentett pozíció */
-  transform-origin: 50% 50%;
-  transition: opacity 150ms, transform 500ms cubic-bezier(0.26, 2.5, 0.46, 0.71);
+  transition: opacity 150ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
 }
 
 .toggleCheckbox:checked ~ .toggleSlot .moonIconWrapper {
   opacity: 1;
-  transform: translate(7em, 1em) rotate(-15deg); /* Csökkentett pozíció */
+  transform: translateY(-50%) scale(1);
 }
