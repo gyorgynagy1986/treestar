@@ -13,6 +13,8 @@
     position: unset;
     justify-content: center;
     align-items: center;
+    margin-top: 3rem;
+
   }
 }
 
@@ -45,9 +47,13 @@
   border-radius: 5em;
   background-color: white;
   box-shadow: 0px 5px 15px #e4e7ec85;
-  overflow: hidden; /* Fontos a kilógás megakadályozására */
-  transition: background-color 250ms;
+  overflow: hidden;
+  /*Fontosakilógásmegakadályozására*/transition: background-color 250ms;
   cursor: pointer;
+  -webkit-transition: background-color 250ms;
+  -moz-transition: background-color 250ms;
+  -ms-transition: background-color 250ms;
+  -o-transition: background-color 250ms;
 }
 
 .toggleCheckbox:checked ~ .toggleSlot {
@@ -66,12 +72,20 @@
   top: 2.5px;
   box-shadow: inset 0px 0px 0px 0.5em #93cc00;
   transition: background-color 250ms, border-color 250ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
+  -webkit-transition: background-color 250ms, border-color 250ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
+  -moz-transition: background-color 250ms, border-color 250ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
+  -ms-transition: background-color 250ms, border-color 250ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
+  -o-transition: background-color 250ms, border-color 250ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
 }
 
 .toggleCheckbox:checked ~ .toggleSlot .toggleButton {
   background-color: #485367;
   box-shadow: inset 0px 0px 0px 0.5em white;
   transform: translate(1.5em, 0.75em);
+  -webkit-transform: translate(1.5em, 0.75em);
+  -moz-transform: translate(1.5em, 0.75em);
+  -ms-transform: translate(1.5em, 0.75em);
+  -o-transform: translate(1.5em, 0.75em);
 }
 
 /* Nap ikon (animációval) */
@@ -92,11 +106,23 @@
   transform: translateY(-50%);
   opacity: 1;
   transition: opacity 150ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
+  -webkit-transition: opacity 150ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
+  -moz-transition: opacity 150ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
+  -ms-transition: opacity 150ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
+  -o-transition: opacity 150ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
 }
 
 .toggleCheckbox:checked ~ .toggleSlot .sunIconWrapper {
   opacity: 0;
   transform: translateY(-50%) scale(0.8);
+  -webkit-transform: translateY(-50%) scale(0.8);
+  -moz-transform: translateY(-50%) scale(0.8);
+  -ms-transform: translateY(-50%) scale(0.8);
+  -o-transform: translateY(-50%) scale(0.8);
 }
 
 /* Hold ikon (animációval) */
@@ -117,9 +143,17 @@
   transform: translateY(-50%);
   opacity: 0;
   transition: opacity 150ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
+  -webkit-transition: opacity 150ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
+  -moz-transition: opacity 150ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
+  -ms-transition: opacity 150ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
+  -o-transition: opacity 150ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
 }
 
 .toggleCheckbox:checked ~ .toggleSlot .moonIconWrapper {
   opacity: 1;
   transform: translateY(-50%) scale(1);
+  -webkit-transform: translateY(-50%) scale(1);
+  -moz-transform: translateY(-50%) scale(1);
+  -ms-transform: translateY(-50%) scale(1);
+  -o-transform: translateY(-50%) scale(1);
 }
