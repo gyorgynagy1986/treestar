@@ -12,7 +12,9 @@ import Hami from "../../../public/assets/icons/hambi.svg";
 import CloseIcon from "../../../public/assets/icons/close.svg"; // Correct Close icon reference
 import { useTheme } from '../../hooks/useTheme';
 import dynamic from 'next/dynamic';
+import DarkModeButton from '../../components/DarkToggleBtn'
 
+//const DarkModeButton = dynamic(() => import('../../components/DarkToggleBtn'), { ssr: false });
 const LogoDinamic = dynamic(() => import('./../../components/Logo'), { ssr: false });
 
 const Nav = ({ sticky }) => {
@@ -90,6 +92,7 @@ const Nav = ({ sticky }) => {
             </Link>
           </li>
         </ul>
+        <DarkModeButton isMobile={true} />
       </div>
 
       {/* Desktop Nav */}

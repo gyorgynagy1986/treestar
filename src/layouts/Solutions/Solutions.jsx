@@ -6,17 +6,30 @@ import AOS from "aos";
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./Solutions.module.css";
 import PaginationControls from "@/utils/PaginationControls";
-import ContentComponent from "./ContentComponent";
-import content from "@/data/solutionData"; // text data
+import {light, dark} from "@/data/solutionData"; // text data
 import getOptimizedImageUrl from "@/utils/getOptimizedImageUrl"; // Optimalizált kép URL generálás
 import useWindowSize from "@/utils/useWindowSize"; // Hook a képernyőméret figyeléséhez
 import useSwipe from "@/utils/useSwipe"; // Importáljuk a swipe hookot
+import { useTheme } from './../../hooks/useTheme';
+import dynamic from 'next/dynamic';
+
+const ContentComponent = dynamic(() => import('./ContentComponent'), { ssr: false });
 
 const Solutions = () => {
   const [currentPage, setCurrentPage] = useState(0);
+  const [content, setContent] = useState(light);
   const autoSlide = useRef(null);
   const size = useWindowSize(); // Képernyő méretének figyelése
   const totalPages = content.length;
+  const { isDarkMode } = useTheme();
+  
+  useEffect(() => {
+   if (isDarkMode === true) {
+    setContent(dark)
+  } else {
+    setContent(light)
+  }
+  }, [isDarkMode, content]);
 
   // Swipe hook integrálása
   const { handleTouchStart, handleTouchEnd } = useSwipe(

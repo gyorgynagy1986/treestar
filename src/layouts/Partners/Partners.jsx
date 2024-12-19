@@ -2,18 +2,24 @@
 import "aos/dist/aos.css"; // You can also use <link> for styles
 import AOS from "aos";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Partners.module.css";
 import Image from "next/image";
 import { partners } from "@/data/Partners";
-import Abstract from "../../../public/assets/abstract.svg";
+import { useTheme } from '../../hooks/useTheme';
+import dynamic from 'next/dynamic';
+
+const AbdtactDinamic = dynamic(() => import('./LogoAbs'), { ssr: false });
 
 const Partners = () => {
+  const { isDarkMode } = useTheme();
+
   useEffect(() => {
     AOS.init({
       duration: 1200,
     });
   }, []);
+
 
   return (
     <section
@@ -23,7 +29,7 @@ const Partners = () => {
       className={styles.section}
     >
       <div className={styles.partnersContainer}>
-        <Image className={styles.abs} src={Abstract} alt="treestar" />
+      <AbdtactDinamic dark={isDarkMode}/>
         <div className={styles.titleContainer1}>
           <h2 className={styles.title}>Partnereink</h2>
         </div>

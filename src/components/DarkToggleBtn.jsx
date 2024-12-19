@@ -7,7 +7,7 @@ import { Icon } from '@iconify/react';
 import sunIcon from '@iconify-icons/feather/sun';
 import moonIcon from '@iconify-icons/feather/moon';
 
-const ThemeSwitch = () => {
+const ThemeSwitch = ({isMobile}) => {
   const { isDarkMode, toggleTheme } = useTheme();
   const [isChecked, setIsChecked] = useState(false);
 
@@ -26,7 +26,7 @@ const ThemeSwitch = () => {
 
   return (
     
-    <div className={styles.btnContainer}>
+    <div className={`${styles.btnContainer} ${isMobile ? styles.btnContainerMobile : ''}`}>
 
     <label className={styles.label}>
       <input

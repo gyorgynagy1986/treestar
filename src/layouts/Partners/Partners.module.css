@@ -109,6 +109,7 @@
     position: relative;
     justify-content: flex-start;
     padding-left: 5vw;
+    z-index: -1;
   }
 
   .titleContainer2 {
@@ -124,12 +125,8 @@
 
 @media screen and (max-width: 500px) {
   .titleContainer1 {
-    width: 100%;
     top: -7.9rem;
-    background-color: transparent;
-    position: relative;
-    justify-content: flex-start;
-    padding-left: 5vw;
+    padding-left: 4vw;
   }
 }
 
