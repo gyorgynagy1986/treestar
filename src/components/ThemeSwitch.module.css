@@ -10,6 +10,16 @@
 
 @media screen and (max-width:600px) {
   .btnContainer {
+  width: 100%;
+  position:unset;
+  justify-content: center;
+  align-items: center;
+  }
+  
+}
+
+@media screen and (max-width:600px) {
+  .btnContainer {
    display: none;
   }
   
@@ -17,7 +27,7 @@
 
 @media screen and (max-width:600px) {
   .btnContainerMobile {
-   display: block !important;
+   display: flex !important;
   }
   
 }
